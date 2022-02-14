@@ -20,7 +20,6 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Controller
@@ -52,7 +51,10 @@ public class CourseController {
         return "course/createCourse";
     }
     @PostMapping("/course/create")
-    public String createCourse(@ModelAttribute("course") @Valid Course course, BindingResult bindingResult){
+    public String createCourse(@ModelAttribute("course") @Valid Course course, BindingResult result){
+        if(result.hasErrors()){
+            return "/course/createCourse";
+        }
         service.create(course);
         return"redirect:/course/index";
     }

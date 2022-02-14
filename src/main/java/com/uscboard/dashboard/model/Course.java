@@ -2,6 +2,8 @@ package com.uscboard.dashboard.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +24,7 @@ public class Course {
     @Size(min = 2, message = "Course name must have at least 2 characters")
     private String courseName;
     @Past
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate createdAt;
 
     public int getId() {

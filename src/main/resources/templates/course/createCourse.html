@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="../css/dashboard.css">
 
     <title>Dashboard</title>
-    
+    <style>
+        error{
+            color:red;
+        }
+        </style>
   </head>
   <body>
       <!--NAVBAR COMPONENT-->
@@ -65,6 +69,7 @@
                         </div>
                         <div class="col-md-6">
                             <input type="text" th:field="*{courseCode}" class="form-control">
+                            <span th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" th:errorclass="error"></span>
                             </div>
                     </div>
                     <div class="row form-group">
@@ -73,6 +78,7 @@
                             </div>
                             <div class="col-md-6">
                                 <input type="text" th:field="*{courseName}" class="form-control">
+                                <span th:if="${#fields.hasErrors('courseName')}" th:errors="*{courseName}" th:errorclass="error"></span>
                                 </div>
                         </div>
                         <div class="row form-group">
@@ -81,6 +87,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input type="date" th:field="*{createdAt}" class="form-control">
+                                    <span th:if="${#fields.hasErrors('createdAt')}" th:errors="*{createdAt}" th:errorclass="error"></span>
                                     </div>
                             </div>
 
