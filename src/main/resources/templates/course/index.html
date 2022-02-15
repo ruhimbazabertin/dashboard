@@ -32,13 +32,13 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">
+                          <a class="nav-link" th:href="@{/course/index}">
                             <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
                             Course
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">
+                          <a class="nav-link" th:href="@{/student/index}">
                             <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
                             student
                           </a>
@@ -50,28 +50,32 @@
       </div>
       <!--MAIN SECTION-->
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <h2>Admin Dashboard</h2>
-        <hr/>
-        <div class="row">  <h3>Courses Available</h3> <span class=""><a th:href="@{/course/form}">Add New Course</a></span></div>
+        <div class="row">
+          <h2>Welcome to admin dashboard</h2>
+          <hr/>
+          <h3>Course Available</h3> 
+          <span class=""><a th:href="@{/course/form}">Add New Course</a></span>
+        </div>
 <hr>
 <div class="table-responsive">
     <table class="table table-dark">
       <thead>
         <tr>
           <th>#</th>
-          <th>First</th>
-          <th>Last</th>
-          <th>Position</th>
+          <th>Course Code</th>
+          <th>Course Name</th>
+          <th>Created_At</th>
           <th colspan="2">Action</th>
         </tr>
       </thead>
       <tbody>
         <tr th:each="course: ${courses}">
           <td th:text="${course.id}"></td>
+          <td th:text="${course.courseCode}"></td>
           <td th:text="${course.courseName}"></td>
           <td th:text="${course.createdAt}"></td>
-          <td><a th:href="#">Edit</a></td>
-          <td><a th:href="#">Delete</a></td>
+          <td><a th:href="@{/edit/{id}(id=${course.id})}">Edit</a></td>
+          <td><a th:href="@{/delete/{id}(id=${course.id})}">Delete</a></td>
         </tr>
 
       </tbody>

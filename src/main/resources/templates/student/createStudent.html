@@ -55,40 +55,68 @@
       </div>
       <!--MAIN SECTION-->
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <h3>Create New Course</h3>
+          <h3>Create New Student</h3>
 <hr>
 <div class="container" style="margin-right: 100px; margin-top: 50px;">
     <div class="row">
         <div class="col-md-8">
-            <form action="#" th:action="@{/course/create}" th:object="${course}" method="post">
+            <form action="#" th:action="@{/student/create}" th:object="${student}" method="post" enctype="multipart/form-data">
                 <div class="row form-group">
                     <div class="col-md-2">
-                        <label for="coursecode">Course_Code</label>
+                        <label for="firstname">FirstName</label>
                         </div>
                         <div class="col-md-6">
-                            <input type="text" th:field="*{courseCode}" class="form-control">
-                            <span th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" th:errorclass="error"></span>
+                            <input type="text" th:field="*{firstName}" class="form-control">
+                            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:errorclass="error"></span>
                             </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-2">
-                            <label for="Coursename">Course_Name</label>
+                            <label for="gender">LastName</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" th:field="*{courseName}" class="form-control">
-                                <span th:if="${#fields.hasErrors('courseName')}" th:errors="*{courseName}" th:errorclass="error"></span>
+                                <input type="text" th:field="*{lastName}" class="form-control">
+                                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" th:errorclass="error"></span>
                                 </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-2">
-                                <label for="Coursename">Created_At</label>
+                                <label for="gender">Gender</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="date" th:field="*{createdAt}" class="form-control">
-                                    <span th:if="${#fields.hasErrors('createdAt')}" th:errors="*{createdAt}" th:errorclass="error"></span>
+                                    <input type="radio"  th:field="*{gender}" value="male"> Male<br>
+                                    <input type="radio" th:field="*{gender}" value="female"> Female<br>
+                                    <input type="radio" th:field="*{gender}" value="other"> Other
+                                    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" th:errorclass="error"></span>
                                     </div>
                             </div>
-
+                            <div class="row form-group">
+                                <div class="col-md-2">
+                                    <label for="Picture">Picture</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="file" name="file" th:field="*{picture}" class="form-control">
+                                        <span th:if="${#fields.hasErrors('picture')}" th:errors="*{picture}" th:errorclass="error"></span>
+                                        </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-2">
+                                        <label for="Address">Address</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" th:field="*{address}" class="form-control">
+                                            <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" th:errorclass="error"></span>
+                                            </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-2">
+                                            <label for="CreatedAt">Created_At</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="date" th:field="*{createdAt}" class="form-control">
+                                                <span th:if="${#fields.hasErrors('createdAt')}" th:errors="*{createdAt}" th:errorclass="error"></span>
+                                                </div>
+                                        </div>
                             <div class="col-md-7" style="margin-left: 80px;">
                                 <button type="submit" name="submit" class="btn btn-primary btn btn-block">Create</button>
                                 </div>

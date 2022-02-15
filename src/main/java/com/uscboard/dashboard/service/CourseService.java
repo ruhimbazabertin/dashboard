@@ -1,6 +1,7 @@
 package com.uscboard.dashboard.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.uscboard.dashboard.model.Course;
 import com.uscboard.dashboard.repository.CourseRepository;
@@ -17,6 +18,13 @@ public class CourseService {
     }
     public List<Course> findAvalaibleCourses(){
         return repo.findAll();
+    }
+    public Optional<Course> findCourseById(int id){
+
+        return repo.findById(id);
+    }
+    public void deleteCourseById(int id){
+        repo.deleteById(id);
     }
 
 }
