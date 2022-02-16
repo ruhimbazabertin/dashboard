@@ -1,7 +1,5 @@
 package com.uscboard.dashboard.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +8,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
-import java.util.Date;
+
 
 @Entity
 public class User {
@@ -25,11 +23,12 @@ public class User {
     private String Gender;
     @Email(message = "Email is mandatory and must be valid")
     private String email;
-    @NotBlank(message = "user type is mandatory")
-    private String type;
+    @NotBlank(message = "user password is mandatory")
+    private String password;
     @Past
     private LocalDate createdAt;
-
+    @ManyToMany(fetch = EAGER)
+    private Collection<Role> roles = new ArrayList<>();
     public int getId() {
         return id;
     }
@@ -71,11 +70,11 @@ public class User {
     }
 
     public String getType() {
-        return type;
+        return password;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType(String password) {
+        this.password = password;
     }
 
     public LocalDate getCreatedAt() {
@@ -94,7 +93,7 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", Gender='" + Gender + '\'' +
                 ", email='" + email + '\'' +
-                ", type='" + type + '\'' +
+                ", type='" + password + '\'' +
                 ", createdAt=" + createdAt +
                 '}';
     }

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
 
@@ -23,7 +24,7 @@ public class Student {
     private String lastName;
     @NotBlank(message = "Gender is mandatory")
     private String gender;
-    @NotBlank(message = "Picture is mandatory")
+    
     private String picture;
     @NotBlank(message = "Address is mandatory")
     private String address;

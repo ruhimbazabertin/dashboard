@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+
+    <title>Dashboard</title>
+    <style>
+        .error{
+            color:red;
+        }
+        </style>
+  </head>
+  <body>
+      <!--NAVBAR COMPONENT-->
+    <nav class="navbar navbar-dark fixed-top bg-primary flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">User Dashboard</a>
+    <input type="text" class="form-control form-control-primary w-100" placeholder="Search..." >
+ <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+    <a class="nav-link" href="#">Logout</a>
+  </li>
+</ul>
+    </nav>
+    <!--SIDE MENU-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 bg-light d-none d-md-block sidebar">
+                <div class="left-sidebar">
+                    <ul class="nav flex-column sidebar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="#">
+                            <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+                            Dashboard
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" th:href="@{/course/index}">
+                            <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+                            Course
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" th:href="@{/student/index}">
+                            <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+                            student
+                          </a>
+                        </li>
+                      </ul>
+                </div>
+              </div>
+        </div>
+      </div>
+      <!--MAIN SECTION-->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <h3>Update Student</h3>
+<hr>
+<div class="container" style="margin-right: 100px; margin-top: 50px;">
+    <div class="row">
+        <div class="col-md-8">
+            <form action="#" th:action="@{/update/{id}(id=${student.id})}"
+             th:object="${student}" method="post" enctype="multipart/form-data">
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="firstname">FirstName</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" th:field="*{firstName}" class="form-control">
+                            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:errorclass="error"></span>
+                            </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="gender">LastName</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" th:field="*{lastName}" class="form-control">
+                                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" th:errorclass="error"></span>
+                                </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <label for="gender">Gender</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="radio"  th:field="*{gender}" value="male"> Male<br>
+                                    <input type="radio" th:field="*{gender}" value="female"> Female<br>
+                                    <input type="radio" th:field="*{gender}" value="other"> Other
+                                    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" th:errorclass="error"></span>
+                                    </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-2">
+                                    <label for="Picture">Picture</label>
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <input type="file" name="file" class="form-control">
+                                        <span th:if="${#fields.hasErrors('picture')}" th:errors="*{picture}" th:errorclass="error"></span>
+                                        </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-2">
+                                        <label for="Address">Address</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" th:field="*{address}" class="form-control">
+                                            <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" th:errorclass="error"></span>
+                                            </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-2">
+                                            <label for="CreatedAt">Created_At</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="date" th:field="*{createdAt}" class="form-control">
+                                                <span th:if="${#fields.hasErrors('createdAt')}" th:errors="*{createdAt}" th:errorclass="error"></span>
+                                                </div>
+                                        </div>
+                            <div class="col-md-7" style="margin-left: 80px;">
+                                <button type="submit" name="submit" class="btn btn-primary btn btn-block">Update</button>
+                                </div>
+                                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+      </main>
+      <!--END MAIN SECTION-->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

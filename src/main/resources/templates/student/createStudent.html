@@ -43,7 +43,7 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">
+                          <a class="nav-link" th:href="@{/student/index}">
                             <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
                             student
                           </a>
@@ -60,7 +60,8 @@
 <div class="container" style="margin-right: 100px; margin-top: 50px;">
     <div class="row">
         <div class="col-md-8">
-            <form action="#" th:action="@{/student/create}" th:object="${student}" method="post" enctype="multipart/form-data">
+            <form action="#" th:action="@{/student/create}"
+             th:object="${student}" method="post" enctype="multipart/form-data">
                 <div class="row form-group">
                     <div class="col-md-2">
                         <label for="firstname">FirstName</label>
@@ -93,9 +94,9 @@
                             <div class="row form-group">
                                 <div class="col-md-2">
                                     <label for="Picture">Picture</label>
-                                    </div>
+                                    </div> 
                                     <div class="col-md-6">
-                                        <input type="file" name="file" th:field="*{picture}" class="form-control">
+                                        <input type="file" name="file" class="form-control">
                                         <span th:if="${#fields.hasErrors('picture')}" th:errors="*{picture}" th:errorclass="error"></span>
                                         </div>
                                 </div>

@@ -20,21 +20,25 @@ public class StudentService {
     @Autowired
     private StudentRepository repo;
 
-    public void create(Student student, @RequestParam("file") MultipartFile multipartFile) throws IOException{
+    public void create(Student student, @RequestParam("file") 
+    MultipartFile multipartFile) throws IOException{
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         repo.save(student);
      //UPLOAD PICTURE IN DIRECTORY
-     String uploadDir = "uploads/" + student.getId();
+     String uploadDir = "/uploads/" + student.getId();
      FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+     String filePath = "/uploads/" + student.getId()+"/"+fileName;
+     student.setPicture(filePath);
+     repo.save(student);
     }
     public List<Student> findAvalaibleStudents(){
         return repo.findAll();
     }
-    public Optional<Student> findCourseById(int id){
+    public Optional<Student> findStudentById(int id){
 
         return repo.findById(id);
     }
-    public void deleteCourseById(int id){
+    public void deleteStudentById(int id){
         repo.deleteById(id);
     }
 
