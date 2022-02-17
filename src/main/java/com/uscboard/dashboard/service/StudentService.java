@@ -25,9 +25,9 @@ public class StudentService {
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         repo.save(student);
      //UPLOAD PICTURE IN DIRECTORY
-     String uploadDir = "/uploads/" + student.getId();
+     String uploadDir = "uploads/" + student.getId();
      FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-     String filePath = "/uploads/" + student.getId()+"/"+fileName;
+     String filePath = "uploads/" + student.getId()+"/"+fileName;
      student.setPicture(filePath);
      repo.save(student);
     }

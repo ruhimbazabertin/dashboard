@@ -74,7 +74,7 @@
           <td th:text="${student.firstName}"></td>
           <td th:text="${student.lastName}"></td>
           <td th:text="${student.gender}"></td>
-          <td><img th:src="${student.picture}" width="100"></td>
+          <td><img th:src="${student.picture}" width="100"/></td>
           <td th:text="${student.address}"></td>
           <td th:text="${student.createdAt}"></td>
           <td><a th:href="@{/student/edit/{id}(id=${student.id})}">Edit</a></td>

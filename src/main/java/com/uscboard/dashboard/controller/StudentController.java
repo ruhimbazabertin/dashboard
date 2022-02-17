@@ -59,11 +59,7 @@ public class StudentController {
     @PostMapping("/create")
     public String create(@ModelAttribute("student") @Valid Student student, 
      @RequestParam("file") MultipartFile multipartFile, BindingResult result) throws IOException{
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         
-        student.setPicture(filePath);
-        System.out.print("FileName"+fileName);
-        System.out.print("Student"+student.getPicture()); 
         if(result.hasErrors()){
                 return"student/createStudent";
             }
@@ -79,16 +75,14 @@ public class StudentController {
             model.addAttribute("student", student);
         return "student/editStudent";
     }
-    @PostMapping("/update/{id}")
-    public String updateStudent(@ModelAttribute("student") @Valid Student student, 
+    @PostMapping("/updateStudent/{id}")
+    public String updateStudent(@ModelAttribute("student") @Valid Student student, @PathVariable("id") int id,
     BindingResult result, @RequestParam("file") MultipartFile multipartFile)throws IOException{
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        student.setPicture(fileName);
         if(result.hasErrors()){
-                return"student/createStudent";
-            }
-            service.create(student, multipartFile);
-
+            return"student/createStudent";
+        }
+        student.setId(id);
+        service.create(student, multipartFile);
         return"redirect:/student/index";
     }
     @GetMapping("/delete/{id}")
