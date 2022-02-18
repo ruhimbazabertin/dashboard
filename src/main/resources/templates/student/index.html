@@ -52,7 +52,7 @@
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <h2>Welcome to admin dashboard</h2>
           <hr/>
-        <div class="row">  <h3>Student Available</h3> <span class=""><a th:href="@{/student/form}">Add New Student</a></span></div>
+        <div class="row">  <h3>Student Available</h3> <span class="" style="margin-left: 700px;"><a th:href="@{/form}">Add New Student</a></span></div>
 <hr>
 <div class="table-responsive">
     <table class="table table-dark">
@@ -77,8 +77,8 @@
           <td><img th:src="${student.picture}" width="100"/></td>
           <td th:text="${student.address}"></td>
           <td th:text="${student.createdAt}"></td>
-          <td><a th:href="@{/student/edit/{id}(id=${student.id})}">Edit</a></td>
-          <td><a th:href="@{/delete/{id}(id=${student.id})}">Delete</a></td>
+          <td><a th:href="@{/editStudent/{id}(id=${student.id})}">Edit</a></td>
+          <td><a th:href="@{/deleteStudent/{id}(id=${student.id})}">Delete</a></td>
         </tr>
 
       </tbody>

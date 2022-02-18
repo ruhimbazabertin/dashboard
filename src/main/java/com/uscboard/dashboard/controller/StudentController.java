@@ -29,7 +29,7 @@ import com.uscboard.dashboard.model.Student;
 import com.uscboard.dashboard.service.StudentService;
 
 @Controller
-@RequestMapping("/student")
+@RequestMapping("")
 public class StudentController {
     @Autowired
     private StudentService service;
@@ -43,7 +43,7 @@ public class StudentController {
         });
         return errors;
     }
-    @GetMapping("/index")
+    @GetMapping("student/index")
     public String index(Model model){
         List<Student> students = service.findAvalaibleStudents();
         model.addAttribute("students",students);
@@ -67,7 +67,7 @@ public class StudentController {
 
         return"redirect:/student/index";
     }
-    @GetMapping("/edit/{id}")
+    @GetMapping("/editStudent/{id}")
     public String editStudentForm(@PathVariable("id") int id,  Model model){
          Student student = service.findStudentById(id)
                           .orElseThrow(()->new IllegalArgumentException("Invalid student Id"+id));
@@ -85,7 +85,7 @@ public class StudentController {
         service.create(student, multipartFile);
         return"redirect:/student/index";
     }
-    @GetMapping("/delete/{id}")
+    @GetMapping("/deleteStudent/{id}")
     public String deleteStudent(@PathVariable("id") int id, Model model){
         Optional<Student> student = service.findStudentById(id);
          if(student.isPresent()){
@@ -95,5 +95,6 @@ public class StudentController {
          model.addAttribute("message", "The student, you are trying to delete is not available");
      }
      return"redirect:/student/index";
+     
  }
 }

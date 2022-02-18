@@ -8,10 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
+
+import net.bytebuddy.agent.builder.AgentBuilder.Listener;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 
 @Entity
@@ -29,76 +35,86 @@ public class User {
     private String email;
     @NotBlank(message = "user password is mandatory")
     private String password;
-    @Past
-    private LocalDate createdAt;
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Collection<Role> roles = new ArrayList<>();
+    @NotEmpty
+    private int active;
+    @NotEmpty
+    private String roles = "";
+    @NotEmpty
+    private String permisions = "";
+
+    public User(String email, String password, String roles, String permissions){
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+        this.permisions = permissions;
+        this.active = 1;
+    }
+
+    protected User(){}
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
     public String getGender() {
         return Gender;
     }
-
     public void setGender(String gender) {
         Gender = gender;
     }
-
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getType() {
+    public String getPassword() {
         return password;
     }
-
-    public void setType(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
-
-    public LocalDate getCreatedAt() {
-        return createdAt;
+    public int getActive() {
+        return active;
     }
-
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
+    public void setActive(int active) {
+        this.active = active;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", Gender='" + Gender + '\'' +
-                ", email='" + email + '\'' +
-                ", type='" + password + '\'' +
-                ", createdAt=" + createdAt +
-                '}';
+    public String getRoles() {
+        return roles;
+    }
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+    public String getPermisions() {
+        return permisions;
+    }
+    public void setPermisions(String permisions) {
+        this.permisions = permisions;
+    }
+    public List<String> getRoleList(){
+        if(this.roles.length() > 0){
+            return Arrays.asList(this.roles.split(","));
+        }
+        return new ArrayList<>();
+    }
+    public List<String> getPermissionList(){
+        if(this.permisions.length() > 0){
+            return Arrays.asList(this.permisions.split(","));
+        }
+        return new ArrayList<>();
     }
 }
