@@ -1,56 +1,43 @@
 package com.uscboard.dashboard.model;
 
+import java.util.Set;
+
+import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Past;
-
-import net.bytebuddy.agent.builder.AgentBuilder.Listener;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
 
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @NotBlank(message = "FirstName is mandatory")
     private String firstName;
-    @NotBlank(message = "LastName is mandatory")
     private String lastName;
-    @NotBlank(message = "Gender is mandatory")
     private String Gender;
-    @Email(message = "Email is mandatory and must be valid")
     private String email;
-    @NotBlank(message = "user password is mandatory")
     private String password;
-    @NotEmpty
-    private int active;
-    @NotEmpty
-    private String roles = "";
-    @NotEmpty
-    private String permisions = "";
 
-    public User(String email, String password, String roles, String permissions){
+    private boolean active;
+    @ManyToMany(fetch = FetchType.EAGER )
+    @JoinTable(name = "users_roles", 
+    joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Set<Role> roles;
+    public User(int id, String firstName, String lastName, String gender, String email, String password, boolean active,
+            Set<Role> roles) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        Gender = gender;
         this.email = email;
         this.password = password;
+        this.active = active;
         this.roles = roles;
-        this.permisions = permissions;
-        this.active = 1;
     }
-
-    protected User(){}
     public int getId() {
         return id;
     }
@@ -87,34 +74,18 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public int getActive() {
+    public boolean isActive() {
         return active;
     }
-    public void setActive(int active) {
+    public void setActive(boolean active) {
         this.active = active;
     }
-    public String getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
-    public void setRoles(String roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-    public String getPermisions() {
-        return permisions;
-    }
-    public void setPermisions(String permisions) {
-        this.permisions = permisions;
-    }
-    public List<String> getRoleList(){
-        if(this.roles.length() > 0){
-            return Arrays.asList(this.roles.split(","));
-        }
-        return new ArrayList<>();
-    }
-    public List<String> getPermissionList(){
-        if(this.permisions.length() > 0){
-            return Arrays.asList(this.permisions.split(","));
-        }
-        return new ArrayList<>();
-    }
+    
+    
 }
