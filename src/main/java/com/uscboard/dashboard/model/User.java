@@ -3,13 +3,7 @@ package com.uscboard.dashboard.model;
 import java.util.Set;
 
 import javax.annotation.Generated;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -23,10 +17,16 @@ public class User {
     private String password;
 
     private boolean active;
-    @ManyToMany(fetch = FetchType.EAGER )
-    @JoinTable(name = "users_roles", 
-    joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Role> roles;
+    
+
+
+
+
     public User(int id, String firstName, String lastName, String gender, String email, String password, boolean active,
             Set<Role> roles) {
         this.id = id;
@@ -38,6 +38,11 @@ public class User {
         this.active = active;
         this.roles = roles;
     }
+
+    public User() {
+
+    }
+
     public int getId() {
         return id;
     }

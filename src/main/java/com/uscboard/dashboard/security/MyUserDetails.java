@@ -13,52 +13,39 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class MyUserDetails implements UserDetails{
 
-    private String email;
-    private String password;
-    private boolean isActive;
-    private List<GrantedAuthority> authorities;
-    public MyUserDetails(User user){
-        this.email = user.getEmail();
-        this.password = user.getPassword();
-        this.isActive  = user.getActive();
-        this.authorities = Arrays.stream(user.getRole().split(","))
-                                 .map(SimpleGrantedAuthority::new)
-                                 .collect(Collectors.toList());
-    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-    
-        return authorities;
+        return null;
     }
+
     @Override
     public String getPassword() {
-        
-        return password;
+        return null;
     }
+
     @Override
     public String getUsername() {
-        
-        return email;
+        return null;
     }
+
     @Override
     public boolean isAccountNonExpired() {
-    
-        return isActive;
+        return false;
     }
+
     @Override
     public boolean isAccountNonLocked() {
-      
-        return true;
+        return false;
     }
+
     @Override
     public boolean isCredentialsNonExpired() {
-        
-        return true;
+        return false;
     }
+
     @Override
     public boolean isEnabled() {
-        
-        return true;
+        return false;
     }
-    
 }

@@ -1,14 +1,11 @@
+package com.uscboard.dashboard.model;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.sound.sampled.Line;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+import com.uscboard.dashboard.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,14 +18,19 @@ public class Role {
     private String name;
     @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
     private List<User> users;
-    
-    
-    public int getId() {
+
     public Role(int id, String name, List<User> users) {
         this.id = id;
         this.name = name;
         this.users = users;
     }
+
+    public Role() {
+
+    }
+
+    public int getId() {
+
         return id;
     }
     public void setId(int id) {
