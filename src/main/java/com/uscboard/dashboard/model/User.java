@@ -2,7 +2,7 @@ package com.uscboard.dashboard.model;
 
 import java.util.Set;
 
-import javax.annotation.Generated;
+
 import javax.persistence.*;
 
 @Entity

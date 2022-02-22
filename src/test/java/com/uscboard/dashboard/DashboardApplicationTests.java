@@ -1,6 +1,18 @@
 package com.uscboard.dashboard;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import com.uscboard.dashboard.model.Role;
 import com.uscboard.dashboard.model.User;
+import com.uscboard.dashboard.service.RoleService;
+import com.uscboard.dashboard.service.UserService;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -12,24 +24,47 @@ import org.springframework.boot.test.context.SpringBootTest;
 @TestInstance(Lifecycle.PER_CLASS)
 class DashboardApplicationTests {
 
-//    @Autowired
-//    UserService userService;
+    @Autowired
+    private RoleService roleservice;
+    @Autowired
+    private UserService userService;
+    // @BeforeAll
+    // @Test
+    //  void createRole(){
+    //     Role adminRole = new Role();
+    //     Role courseManager = new Role();
+    //     Role studentManager = new Role();
+    //     //create role for admin:
+    //     adminRole.setName("ADMIN");
+    //     roleservice.createRole(adminRole);
+    //     //create role for course manager:
+    //     courseManager.setName("COURSE_MANAGER");
+    //     roleservice.createRole(courseManager);
+    //     //create role for student manager:
+    //     studentManager.setName("STUDENT_MANAGER");
+    //     roleservice.createRole(studentManager);
+    //  }
 
-//@BeforeAll
-//    @Test
-//  void createUser(){
-//    User user = new User();
-//    User user = new User();
-//   // user.setId(2);
-//    user.setFirstName("Ahishakiye");
-//    user.setLastName("Aline");
-//    user.setGender("Male");
-//    user.setEmail("aline@gmail.com");
-//    user.setPassword("aline123");//aline123
-//    user.setActive(true);
-//    user.setRole("USER");
-//
-//    userService.createUser(user);
- }
+    @BeforeAll
+     @Test
+     void createUser(){
 
+         //find the role to atach to user
+         Set<Role> roles1 = new HashSet<Role>();
+        //List<Role> roles1 = new ArrayList<Role>();
+         Role adminRole = roleservice.findRoleById(32);
+         roles1.add(adminRole);
+        User admin = new User();
+        admin.setFirstName("Ruhimbaza");
+        admin.setLastName("Bertin");
+        admin.setGender("Male");
+        admin.setEmail("ruhimbazab@gmail.com");
+        admin.setPassword("bertin123");
+        admin.setRoles(roles1);
+        
+    userService.createUser(admin);
+
+     }
+
+}
 
