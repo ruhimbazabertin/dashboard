@@ -43,7 +43,7 @@ public class StudentController {
         });
         return errors;
     }
-    @GetMapping("student/index")
+    @GetMapping("/student/index")
     public String index(Model model){
         List<Student> students = service.findAvalaibleStudents();
         model.addAttribute("students",students);

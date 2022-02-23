@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserController {
     @GetMapping("/login")
     public String authenticate(){
-        return "index";
+        return "redirect:/student/index";
     }
     @GetMapping("/dashboard")
     public String dashboard(){

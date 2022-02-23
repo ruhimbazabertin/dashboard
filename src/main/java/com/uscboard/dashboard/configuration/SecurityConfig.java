@@ -21,8 +21,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     public UserDetailsService userDetailsService(){
         return new UserDetailServiceImpl();
     }
-   // @Autowired
-    //private BCryptPasswordEncoder encoder;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
@@ -38,7 +36,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         
-        //auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
         auth.authenticationProvider(authenticationProvider());
     }
 
@@ -47,12 +44,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         
         http
             .authorizeRequests()
-            .antMatchers("/login").permitAll()
+            //.antMatchers("/login").permitAll()
             .antMatchers("/student/index").authenticated()
             .anyRequest().authenticated()
 
             .and()
             .formLogin()
+            .loginPage("/login")
             .defaultSuccessUrl("/student/index",true)
 
             .and()

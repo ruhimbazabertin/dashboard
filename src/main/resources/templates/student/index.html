@@ -3,19 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/dashboard.css">
 
     <title>Dashboard</title>
+    <!--Integrating cdn for datatable-->
+    <link rel="stylesheet" 
+    type="text/css" 
+    href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+  <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+    crossorigin="anonymous" />
+    <!--End of cdn-->
+    <link rel="stylesheet" href="../../css/dashboard.css">
   </head>
   <body>
       <!--NAVBAR COMPONENT-->
     <nav class="navbar navbar-dark fixed-top bg-primary flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">User Dashboard</a>
-    <input type="text" class="form-control form-control-primary w-100" placeholder="Search..." >
+        <!--<form th:action="@{/index}" method="get">
+          <input type="text" id="search" name="keyword" class="form-control form-control-primary w-100" placeholder="Search..." >
+          <button type="submit">Go</button>
+          </form>-->
  <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-    <a class="nav-link" href="#">Logout</a>
+    <a class="nav-link" th:href="@{/logout}">Logout</a>
   </li>
 </ul>
     </nav>
@@ -55,40 +66,56 @@
         <div class="row">  <h3>Student Available</h3> <span class="" style="margin-left: 700px;"><a th:href="@{/form}">Add New Student</a></span></div>
 <hr>
 <div class="table-responsive">
-    <table class="table table-dark">
-      <thead>
-        <tr>
-          <th>#</th>
+  <table class="table table-bordered table-striped" id="studentTable">
+			
+    <thead>
+      <tr>
+        <th>#</th>
           <th>FirstName</th>
           <th>LastName</th>
           <th>Gender</th>
           <th>Picture</th>
           <th>Address</th>
           <th>CreatedAt</th>
-          <th colspan="2">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="student: ${students}">
-          <td th:text="${student.id}"></td>
-          <td th:text="${student.firstName}"></td>
-          <td th:text="${student.lastName}"></td>
-          <td th:text="${student.gender}"></td>
-          <td><img th:src="${student.picture}" width="100"/></td>
-          <td th:text="${student.address}"></td>
-          <td th:text="${student.createdAt}"></td>
-          <td><a th:href="@{/editStudent/{id}(id=${student.id})}">Edit</a></td>
-          <td><a th:href="@{/deleteStudent/{id}(id=${student.id})}">Delete</a></td>
-        </tr>
+          <th>Action</th>
+          
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="student: ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.gender}"></td>
+        <td><img th:src="${student.picture}" width="100"/></td>
+        <td th:text="${student.address}"></td>
+        <td th:text="${student.createdAt}"></td>
+        <td>
+          <a th:href="@{/editStudent/{id}(id=${student.id})}">Edit</a>
+          <a th:href="@{/deleteStudent/{id}(id=${student.id})}">Delete</a>
 
-      </tbody>
-    </table>
+        </td>
+      </tr>
+    </tbody>
+    
+  </table>
   </div>
       </main>
       <!--END MAIN SECTION-->
+      <!--Javascript part-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
+      <script>
+        $(document).ready(function() {
+          $("#studentTable").DataTable({
+              'aoColumnDefs': [{
+                  'bSortable': false,
+                  'aTargets': [-1]
+              }]
+          });
+        })
+      </script>
+      <!--END JAVASCRIPT-->
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
