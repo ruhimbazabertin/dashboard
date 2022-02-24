@@ -20,10 +20,10 @@
       <!--NAVBAR COMPONENT-->
     <nav class="navbar navbar-dark fixed-top bg-primary flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">User Dashboard</a>
-        <!--<form th:action="@{/index}" method="get">
+        <form th:action="@{/student/index}" method="get">
           <input type="text" id="search" name="keyword" class="form-control form-control-primary w-100" placeholder="Search..." >
-          <button type="submit">Go</button>
-          </form>-->
+          <button type="submit"></button>
+          </form>
  <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
     <a class="nav-link" th:href="@{/logout}">Logout</a>
@@ -87,7 +87,7 @@
         <td th:text="${student.firstName}"></td>
         <td th:text="${student.lastName}"></td>
         <td th:text="${student.gender}"></td>
-        <td><img th:src="${student.picture}" width="100"/></td>
+        <td><img th:src="${student.picture}" width="50"/></td>
         <td th:text="${student.address}"></td>
         <td th:text="${student.createdAt}"></td>
         <td>

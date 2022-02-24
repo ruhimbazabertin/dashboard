@@ -16,12 +16,15 @@
                         <div class="card-body">
                             <center><h5 class="card-title">Login For Dashboard</h5></center>
                             <hr style="background-color: red; height: 2px;"/>
+                            <div th:if="${param.error}" class="alert alert-danger">
+                                Invalid email and password.
+                                </div>
                     <div class="row form-group">
                         <div class="col-md-2">
                             <label for="username">Username</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="email" name="email" class="form-control">
+                                <input type="email" id="username" name="username" class="form-control">
                                 </div>
                         </div>
                         <div class="row form-group">
@@ -29,12 +32,12 @@
                                 <label for="username">Password</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="password" name="password" class="form-control">
+                                    <input type="password" id="password" name="password" class="form-control">
                                     </div>
                             </div>
                             <div class="row form-group">
                                 <div class="col-md-12">
-                                   <span class="forgot_link" style="margin-left: 500px;"> <a href="#" target="_blank">Forgot Password?</a></span>
+                                   <span class="forgot_link" style="margin-left: 500px;"> <a th:href="@{/user/reset-password}" target="_blank">Forgot Password?</a></span>
                                         </div>
                                 </div>
                                 <div class="col-md-7" style="margin-left: 80px;">

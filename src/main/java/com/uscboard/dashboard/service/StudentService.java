@@ -9,6 +9,7 @@ import com.uscboard.dashboard.repository.StudentRepository;
 import com.uscboard.dashboard.util.FileUploadUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,9 +26,11 @@ public class StudentService {
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         repo.save(student);
      //UPLOAD PICTURE IN DIRECTORY
-     String uploadDir = "uploads/" + student.getId();
+     
+     String uploadDir = "D:/GitRepo/dashboard/src/main/resources/static/uploads/" + student.getId();
      FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-     String filePath = "uploads/" + student.getId()+"/"+fileName;
+     String filePath = "/uploads/" + student.getId()+"/"+fileName;
+    // String filePath = "D:/GitRepo/dashboard/src/main/resources/static/uploads/" + student.getId()+"/"+fileName;
      student.setPicture(filePath);
      repo.save(student);
     }
@@ -40,6 +43,10 @@ public class StudentService {
     }
     public void deleteStudentById(int id){
         repo.deleteById(id);
+    }
+    //Get students by keyword
+    public List<Student> searchByKeyword(@Param("keyword") String keyword){
+        return repo.findByKeyword(keyword);
     }
 
 }

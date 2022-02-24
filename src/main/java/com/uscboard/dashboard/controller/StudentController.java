@@ -44,9 +44,16 @@ public class StudentController {
         return errors;
     }
     @GetMapping("/student/index")
-    public String index(Model model){
+    public String index(Model model, String keyword){
         List<Student> students = service.findAvalaibleStudents();
-        model.addAttribute("students",students);
+        List<Student> studentRequested = service.searchByKeyword(keyword);
+
+        if(keyword != null){
+            model.addAttribute("students", studentRequested);
+        }else{
+            model.addAttribute("students",students);
+        }
+
         return"student/index";
     }
     @GetMapping("/form")

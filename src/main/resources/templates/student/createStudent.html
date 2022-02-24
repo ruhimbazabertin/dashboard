@@ -68,7 +68,7 @@
                         </div>
                         <div class="col-md-6">
                             <input type="text" th:field="*{firstName}" class="form-control">
-                            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:errorclass="error"></span>
+                            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:errorclass="error" required></span>
                             </div>
                     </div>
                     <div class="row form-group">
@@ -76,7 +76,7 @@
                             <label for="gender">LastName</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" th:field="*{lastName}" class="form-control">
+                                <input type="text" th:field="*{lastName}" class="form-control" required>
                                 <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" th:errorclass="error"></span>
                                 </div>
                         </div>
@@ -96,7 +96,7 @@
                                     <label for="Picture">Picture</label>
                                     </div> 
                                     <div class="col-md-6">
-                                        <input type="file" name="file" class="form-control">
+                                        <input type="file" name="file" class="form-control" required>
                                         <span th:if="${#fields.hasErrors('picture')}" th:errors="*{picture}" th:errorclass="error"></span>
                                         </div>
                                 </div>
@@ -105,7 +105,7 @@
                                         <label for="Address">Address</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" th:field="*{address}" class="form-control">
+                                            <input type="text" th:field="*{address}" class="form-control" required>
                                             <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" th:errorclass="error"></span>
                                             </div>
                                     </div>
@@ -114,7 +114,7 @@
                                             <label for="CreatedAt">Created_At</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="date" th:field="*{createdAt}" class="form-control">
+                                                <input type="date" th:field="*{createdAt}" class="form-control" required>
                                                 <span th:if="${#fields.hasErrors('createdAt')}" th:errors="*{createdAt}" th:errorclass="error"></span>
                                                 </div>
                                         </div>
