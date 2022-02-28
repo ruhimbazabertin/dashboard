@@ -4,14 +4,21 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
+//import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Controller
 public class UserController {
+
+   Logger log = LoggerFactory.getLogger(this.getClass());
  
     @GetMapping("/login")
     public String authenticationPage(){
+        log.info("Admin try to login into the system");
+
         return "auth/authentication";
     }
 
@@ -29,11 +36,10 @@ public String redirectionAfterLogin(HttpServletRequest request){
     // else{
     //     return "redirect:/login";
     // }
+    
+    log.info("Admin is into the system");
+
     return "redirect:/student/index";
 
 }
-    @GetMapping("/user/reset-password")
-    public String resetPasswordPage(){
-        return "auth/resetPassword";
-    }
 }

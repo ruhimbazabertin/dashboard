@@ -55,8 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             .authorizeRequests()
             .antMatchers("/user/reset-password").permitAll()
             .antMatchers("/student/index").authenticated()
-            //.antMatchers("/course/index").authenticated()
-            .antMatchers("/course/index").hasRole("ADMIN")
+            .antMatchers("/course/index").authenticated()
+           // .antMatchers("/course/index").hasRole("ADMIN")
             .anyRequest().authenticated()
 
             .and()

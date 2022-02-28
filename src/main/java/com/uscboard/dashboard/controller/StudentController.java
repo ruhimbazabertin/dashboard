@@ -27,10 +27,13 @@ import javax.validation.Valid;
 
 import com.uscboard.dashboard.model.Student;
 import com.uscboard.dashboard.service.StudentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Controller
 @RequestMapping("")
 public class StudentController {
+    Logger log = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private StudentService service;
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -45,6 +48,7 @@ public class StudentController {
     }
     @GetMapping("/student/index")
     public String index(Model model, String keyword){
+        log.info("Admin viewing student information");
         List<Student> students = service.findAvalaibleStudents();
         List<Student> studentRequested = service.searchByKeyword(keyword);
 
@@ -58,6 +62,7 @@ public class StudentController {
     }
     @GetMapping("/form")
     public String showStudentForm(Model model){
+        log.info("Admin Accessed the student form page");
         Student student = new Student();
         model.addAttribute("student", student);
         return"student/createStudent";
@@ -66,10 +71,13 @@ public class StudentController {
     @PostMapping("/create")
     public String create(@ModelAttribute("student") @Valid Student student, 
      @RequestParam("file") MultipartFile multipartFile, BindingResult result) throws IOException{
+        log.info("Admin is trying to register a new student");
         
         if(result.hasErrors()){
+            log.error("Something went wrong in registering a new student");
                 return"student/createStudent";
             }
+            log.info("Admin created a new student");
             service.create(student, multipartFile);
 
         return"redirect:/student/index";
@@ -78,27 +86,34 @@ public class StudentController {
     public String editStudentForm(@PathVariable("id") int id,  Model model){
          Student student = service.findStudentById(id)
                           .orElseThrow(()->new IllegalArgumentException("Invalid student Id"+id));
+                          log.warn("Student not found");
 
             model.addAttribute("student", student);
+            log.info("Admin is trying to edit a student information");
         return "student/editStudent";
     }
     @PostMapping("/updateStudent/{id}")
     public String updateStudent(@ModelAttribute("student") @Valid Student student, @PathVariable("id") int id,
     BindingResult result, @RequestParam("file") MultipartFile multipartFile)throws IOException{
         if(result.hasErrors()){
+            log.error("Something went wrong in updating a student");
             return"student/createStudent";
         }
         student.setId(id);
         service.create(student, multipartFile);
+        log.error("Admin updated a student propery");
         return"redirect:/student/index";
     }
     @GetMapping("/deleteStudent/{id}")
     public String deleteStudent(@PathVariable("id") int id, Model model){
+        log.info("Admin is trying to delete a student");
         Optional<Student> student = service.findStudentById(id);
          if(student.isPresent()){
              service.deleteStudentById(id);
+             log.info("Admin deleted a student");
          }
      else{
+        log.warn("Admin, a student you want to delete is not available");
          model.addAttribute("message", "The student, you are trying to delete is not available");
      }
      return"redirect:/student/index";
