@@ -30,7 +30,6 @@ public class Student {
     private String address;
     @Past
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-   // @NotBlank(message = "Creation date is mandatory")
     private LocalDate createdAt;
 
     public int getId() {

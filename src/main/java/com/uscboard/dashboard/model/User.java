@@ -15,8 +15,8 @@ public class User {
     private String Gender;
     private String email;
     private String password;
-
     private boolean active;
+    private String resetPasswordToken;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
@@ -85,6 +85,15 @@ public class User {
     public void setActive(boolean active) {
         this.active = active;
     }
+    
+    public String getResetPasswordToken() {
+        return resetPasswordToken;
+    }
+
+    public void setResetPasswordToken(String resetPasswordToken) {
+        this.resetPasswordToken = resetPasswordToken;
+    }
+
     public Set<Role> getRoles() {
         return roles;
     }
