@@ -53,10 +53,9 @@ public class AssignController {
         return "assign/index";
     }
     @PostMapping("/create-student-course")
-    public String createStudentCourse(@ModelAttribute("student") Student student, @RequestParam("course") String course){
+    public String createStudentCourse(@ModelAttribute("student") Student student){
 
-        System.out.println("COURSE!!!"+course);
-        System.out.println("Student "+student);
+        //testing
         System.out.println("Name"+student.getFirstName());
        return "redirect:/student/index";
     }
