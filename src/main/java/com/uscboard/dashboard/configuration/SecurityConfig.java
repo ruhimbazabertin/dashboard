@@ -51,26 +51,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         
-        http
-            .authorizeRequests()
-            .antMatchers("/forgot-password", "/reset-password").permitAll()
-            .antMatchers("/student/index").authenticated()
-            .antMatchers("/course/index").authenticated()
-           // .antMatchers("/course/index").hasRole("ADMIN")
-            .anyRequest().authenticated()
+        // http
+        //     .authorizeRequests()
+        //     .antMatchers("/forgot-password", "/reset-password").permitAll()
+        //     .antMatchers("/student/index").authenticated()
+        //     .antMatchers("/course/index").authenticated()
+        //     .antMatchers("/dashboard/user/index").authenticated()
+        //    // .antMatchers("/course/index").hasRole("ADMIN")
+        //     .anyRequest().authenticated()
 
-            .and()
-            .formLogin()
-            .loginPage("/login").permitAll()
-            .defaultSuccessUrl("/default",true)
+        //     .and()
+        //     .formLogin()
+        //     .loginPage("/login").permitAll()
+        //     .defaultSuccessUrl("/default",true)
 
-            .and()
-            .logout()
-            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+        //     .and()
+        //     .logout()
+        //     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 
-            .and()
-            .exceptionHandling()
-            .accessDeniedPage("/accessDenied");
+        //     .and()
+        //     .exceptionHandling()
+        //     .accessDeniedPage("/accessDenied");
 
 
             

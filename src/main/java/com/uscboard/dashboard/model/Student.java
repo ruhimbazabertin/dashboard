@@ -4,14 +4,22 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Student {
@@ -31,6 +39,10 @@ public class Student {
     @Past
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate createdAt;
+
+    //relationship
+    @OneToMany(mappedBy = "student")
+    private Set<StudentCourse> studentCourses= new HashSet<>();
 
     public int getId() {
         return id;
@@ -88,16 +100,21 @@ public class Student {
         this.createdAt = createdAt;
     }
 
+    public Set<StudentCourse> getStudentCourses() {
+        return studentCourses;
+    }
+
+    public void setStudentCourses(Set<StudentCourse> studentCourses) {
+        this.studentCourses = studentCourses;
+    }
+
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", gender='" + gender + '\'' +
-                ", picture='" + picture + '\'' +
-                ", address='" + address + '\'' +
-                ", createdAt=" + createdAt +
-                '}';
+        return "Student [address=" + address + ", createdAt=" + createdAt + ", firstName=" + firstName + ", gender="
+                + gender + ", id=" + id + ", lastName=" + lastName + ", picture=" + picture + ", studentCourses="
+                + studentCourses + "]";
     }
+    
+
+    
 }

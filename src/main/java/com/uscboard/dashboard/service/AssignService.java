@@ -2,6 +2,7 @@ package com.uscboard.dashboard.service;
 
 import java.util.Optional;
 
+import com.uscboard.dashboard.model.Course;
 import com.uscboard.dashboard.model.Student;
 import com.uscboard.dashboard.repository.CourseRepository;
 import com.uscboard.dashboard.repository.StudentRepository;
@@ -15,6 +16,11 @@ public class AssignService {
     private StudentRepository studentRepo;
     @Autowired
     private CourseRepository  courseRepo;
+
+    public void saveStudentCourses(Student student){
+
+        studentRepo.save(student);
+    }
 
     public Optional<Student> findStudentById(int id){
 

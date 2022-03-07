@@ -36,7 +36,7 @@
                 <div class="left-sidebar">
                     <ul class="nav flex-column sidebar-nav">
                         <li class="nav-item">
-                          <a class="nav-link active" href="#">
+                          <a class="nav-link active" th:href="@{/dashboard/user/index}">
                             <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
                             Dashboard
                           </a>
@@ -92,19 +92,44 @@
                         <div class="col-md-6"><strong><p th:text="${student.createdAt}"></p></strong></div>
                         </div>
                         </div>
+                        <div class="col-md-4" style="margin-top: -200px; margin-left: 700px;">
+                        <div class="alert alert-warning" role="alert">
+                          <center>Courses assigned to: <p class="" th:text="${student.firstName} +'  '+ ${student.lastName}" style="font-size: 20px; font-weight: bold;"></p></center>
+                          </div>
+                          <div class="jumbotron" style="margin-top: -50px;">
+                            <ul>
+                              <li>Python</li>
+                              <li>Bigdata</li>
+                              <li>Php</li>
+                              </ul>
+
+                            </div>
+                          </div>
     <div class="alert alert-info" role="alert">
       <center>Assigning Courses to Student section</center>
       </div>
-    <div>
-      <center>  <input type="radio" value="1"> ENG-250<br/>
-        <input type="radio" value="2"> Java-450<br/>
-        <input type="radio" value="3"> Php-150<br/><br/>
+      <form th:action="@{/create-student-course}" th:object="${student}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{firstName}">
+        <input type="hidden" th:field="*{lastName}">
+        <input type="hidden" th:field="*{gender}">
+        <input type="hidden" th:field="*{picture}">
+        <input type="hidden" th:field="*{address}">
+        <input type="hidden" th:field="*{createdAt}">
+   <!-- <div>-->
+      <span th:each="course: ${courses}"> 
+      <center>
+        <input type="checkbox" th:field="*{studentCourses}" th:value="${course.id}">
+        <label th:text="${course.courseName}"></label><br/>
         </center>
-    </div>
+        </span>
+    <!--</div>-->
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary btn btn-block">Assign</button>
+      </div>
+      </form>
   </div>
-  <div class="col-md-12">
-    <button type="submit" class="btn btn-primary btn btn-block">Assign</button>
-    </div>
+
       </main>
       <!--END MAIN SECTION-->
 

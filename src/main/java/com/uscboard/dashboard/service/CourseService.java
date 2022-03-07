@@ -23,6 +23,10 @@ public class CourseService {
 
         return repo.findById(id);
     }
+    public Course getCourseById(int id){
+
+        return repo.getById(id);
+    }
     public void deleteCourseById(int id){
         repo.deleteById(id);
     }

@@ -5,14 +5,19 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 @Entity
 public class Course {
     @Id
@@ -26,6 +31,10 @@ public class Course {
     @Past
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate createdAt;
+
+    //Create relationship
+    @OneToMany(mappedBy = "course")
+    private Set<StudentCourse> studentCourses= new HashSet<>();
 
     public int getId() {
         return id;
@@ -59,13 +68,20 @@ public class Course {
         this.createdAt = createdAt;
     }
 
+    public Set<StudentCourse> getStudentCourses() {
+        return studentCourses;
+    }
+
+    public void setStudentCourses(Set<StudentCourse> studentCourses) {
+        this.studentCourses = studentCourses;
+    }
+
     @Override
     public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", courseCode='" + courseCode + '\'' +
-                ", courseName='" + courseName + '\'' +
-                ", createdAt=" + createdAt +
-                '}';
+        return "Course [courseCode=" + courseCode + ", courseName=" + courseName + ", createdAt=" + createdAt + ", id="
+                + id + ", studentCourses=" + studentCourses + "]";
     }
+    
+
+    
 }
