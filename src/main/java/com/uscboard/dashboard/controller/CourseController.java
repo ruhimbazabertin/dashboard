@@ -1,7 +1,11 @@
 package com.uscboard.dashboard.controller;
 
 import com.uscboard.dashboard.model.Course;
+import com.uscboard.dashboard.model.Department;
+import com.uscboard.dashboard.model.Faculty;
 import com.uscboard.dashboard.service.CourseService;
+import com.uscboard.dashboard.service.DepartmentService;
+import com.uscboard.dashboard.service.FacultyService;
 import com.uscboard.dashboard.service.LoggingService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +35,11 @@ public class CourseController {
     private LoggingService logService;
     @Autowired
     private CourseService service;
+    @Autowired
+    private FacultyService facultyService;
+    @Autowired
+    private DepartmentService departService;
+
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String,String> handleValidationExceptions(MethodArgumentNotValidException ex) {
@@ -53,8 +62,16 @@ public class CourseController {
     @GetMapping("/course/form")
     public String showCourseForm(Model model){
         logService.loggingInfo("Admin accessed course form page");
+
         Course course = new Course();
+        List<Faculty> faculties = facultyService.findAllFaculty();
+        List<Department> departments = departService.findAllDepartments();
+
         model.addAttribute("course", course);
+        model.addAttribute("faculties", faculties);
+        model.addAttribute("departments", departments);
+
+
         return "course/createCourse";
     }
     @PostMapping("/course/create")

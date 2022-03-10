@@ -13,12 +13,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -39,10 +41,22 @@ public class Student {
     @Past
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate createdAt;
-
-    //relationship
-    @OneToMany(mappedBy = "student")
-    private Set<StudentCourse> studentCourses= new HashSet<>();
+    //create relationship
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name="student_courses",
+                    joinColumns = {
+                        @JoinColumn(name="student_id", referencedColumnName = "id")
+                    },
+                     inverseJoinColumns = {
+                         @JoinColumn(name="course_id", referencedColumnName = "id")
+                     }
+                    )
+    private List<Course> courses;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Faculty faculty;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Department department;
 
     public int getId() {
         return id;
@@ -100,21 +114,28 @@ public class Student {
         this.createdAt = createdAt;
     }
 
-    public Set<StudentCourse> getStudentCourses() {
-        return studentCourses;
+    public List<Course> getCourses() {
+        return courses;
     }
 
-    public void setStudentCourses(Set<StudentCourse> studentCourses) {
-        this.studentCourses = studentCourses;
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 
-    @Override
-    public String toString() {
-        return "Student [address=" + address + ", createdAt=" + createdAt + ", firstName=" + firstName + ", gender="
-                + gender + ", id=" + id + ", lastName=" + lastName + ", picture=" + picture + ", studentCourses="
-                + studentCourses + "]";
+    public Faculty getFaculty() {
+        return faculty;
     }
-    
 
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
     
 }

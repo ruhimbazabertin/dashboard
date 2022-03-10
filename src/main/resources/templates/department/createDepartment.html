@@ -44,7 +44,7 @@
                             Dashboard
                           </a>
                         </li>
-                                                <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" th:href="@{/faculty/form}">
                               <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
                               Faculty
@@ -75,55 +75,88 @@
       </div>
       <!--MAIN SECTION-->
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <h2>Admin Dashboard</h2>
-          <hr/>
-          <h3>Edit Course</h3>
+          <h2>Welcome to dashbord</h2>
+          <div class="row">
+          <span><h3>Create New Department</h3></span>
+          <span class="facultyDetail" style="padding-left: 450px;"><h3>All Departments Available</h3></span>
+          </div>
 <hr>
 <div class="container" style="margin-right: 100px; margin-top: 50px;">
     <div class="row">
-        <div class="col-md-8">
-            <form action="#" th:action="@{/update/{id}(id=${course.id})}" th:object="${course}" method="post">
+            <div class="col-md-6">
+            <form action="" th:action="@{/department/create}" th:object="${department}"  method="post">
                 <div class="row form-group">
                     <div class="col-md-2">
-                        <label for="coursecode">Course_Code</label>
+                        <label for="firstname">Select Faculty</label>
                         </div>
                         <div class="col-md-6">
-                            <input type="text" th:field="*{courseCode}" class="form-control" required>
-                            <span th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" th:errorclass="error"></span>
+                            <select class="form-control" th:field="*{faculty}">
+                                <option value="">Nothing selected</option>
+                                <option th:each="faculty : ${faculties}" th:value="${faculty.id}" th:text="${faculty.name}"></option>
+                                </select>
                             </div>
                     </div>
-                    <div class="row form-group">
-                        <div class="col-md-2">
-                            <label for="Coursename">Course_Name</label>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" th:field="*{courseName}" class="form-control" required>
-                                <span th:if="${#fields.hasErrors('courseName')}" th:errors="*{courseName}" th:errorclass="error"></span>
-                                </div>
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="firstname">DepartName</label>
                         </div>
-                        <div class="row form-group">
-                            <div class="col-md-2">
-                                <label for="Coursename">Created_At</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="date" th:field="*{createdAt}" class="form-control" required>
-                                    <span th:if="${#fields.hasErrors('createdAt')}" th:errors="*{createdAt}" th:errorclass="error"></span>
-                                    </div>
+                        <div class="col-md-6">
+                            <input type="text" th:field="*{name}" class="form-control" required>
                             </div>
+                    </div>
 
                             <div class="col-md-7" style="margin-left: 80px;">
-                                <button type="submit" name="submit" class="btn btn-primary btn btn-block">Update</button>
-                                </div>
+                                <button type="submit" name="submit" class="btn btn-primary btn btn-block">Create</button>
                                 </div>
                 </form>
+                </div>
+                <!--Department Details-->
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped" id="departmentTable">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>DepartmentName</th>
+                              <th>FacultyName</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr th:each="department : ${departments}">
+                              <td th:text="${department.dep_id}"></td>
+                              <td th:text="${department.name}"></td>
+                              <td th:text="${department.faculty.name}"></td>
+
+                              <td>
+                                <a href="">Edit</a>
+                              <a href="">Delete</a>
+                            </td>
+                            </tr>
+                    
+                          </tbody>
+                        </table>
+                    </div>
+                <!--End-->
             </div>
         </div>
     </div>
       </main>
       <!--END MAIN SECTION-->
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <!--Javascript part-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
+            <script>
+              $(document).ready(function() {
+                $("#departmentTable").DataTable({
+                    'aoColumnDefs': [{
+                        'bSortable': false,
+                        'aTargets': [-1] 
+                    }]
+                });
+              })
+            </script>
+            <!--END JAVASCRIPT-->
   </body>
 </html>

@@ -24,17 +24,27 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import com.uscboard.dashboard.model.Department;
+import com.uscboard.dashboard.model.Faculty;
 import com.uscboard.dashboard.model.Student;
+import com.uscboard.dashboard.service.DepartmentService;
+import com.uscboard.dashboard.service.FacultyService;
 import com.uscboard.dashboard.service.LoggingService;
 import com.uscboard.dashboard.service.StudentService;
 
 @Controller
 @RequestMapping("")
 public class StudentController {
+
     @Autowired
    private LoggingService logService;
     @Autowired
     private StudentService service;
+    @Autowired
+    private FacultyService facultyService;
+    @Autowired
+    private DepartmentService departService;
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String,String> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
@@ -62,8 +72,15 @@ public class StudentController {
     @GetMapping("/form")
     public String showStudentForm(Model model){
         logService.loggingInfo("Admin Accessed the student form page");
+
         Student student = new Student();
+        List<Faculty> faculties = facultyService.findAllFaculty();
+        List<Department> departments = departService.findAllDepartments();
+
         model.addAttribute("student", student);
+        model.addAttribute("faculties", faculties);
+        model.addAttribute("departments", departments);
+        
         return"student/createStudent";
     }
 

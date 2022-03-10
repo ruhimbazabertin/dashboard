@@ -4,20 +4,20 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;;
 @Entity
 public class Course {
     @Id
@@ -33,8 +33,14 @@ public class Course {
     private LocalDate createdAt;
 
     //Create relationship
-    @OneToMany(mappedBy = "course")
-    private Set<StudentCourse> studentCourses= new HashSet<>();
+    @ManyToMany(mappedBy = "courses", fetch = FetchType.EAGER)
+    private List<Student> students;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Faculty faculty;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Department department;
 
     public int getId() {
         return id;
@@ -68,20 +74,35 @@ public class Course {
         this.createdAt = createdAt;
     }
 
-    public Set<StudentCourse> getStudentCourses() {
-        return studentCourses;
+    public List<Student> getStudents() {
+        return students;
     }
 
-    public void setStudentCourses(Set<StudentCourse> studentCourses) {
-        this.studentCourses = studentCourses;
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     @Override
     public String toString() {
-        return "Course [courseCode=" + courseCode + ", courseName=" + courseName + ", createdAt=" + createdAt + ", id="
-                + id + ", studentCourses=" + studentCourses + "]";
+        return "Course [courseCode=" + courseCode + ", courseName=" + courseName + ", createdAt=" + createdAt
+                + ", department=" + department + ", faculty=" + faculty + ", id=" + id + ", students=" + students + "]";
     }
     
 
-    
 }

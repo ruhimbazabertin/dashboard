@@ -18,14 +18,22 @@
   </head>
   <body>
       <!--NAVBAR COMPONENT-->
-    <nav class="navbar navbar-dark fixed-top bg-primary flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">User Dashboard</a>
-     <!-- <input type="text" id="search" name="keyword" class="form-control form-control-primary w-100" placeholder="Search..." >  --> 
- <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-    <a class="nav-link" th:href="@{/logout}">Logout</a>
-  </li>
-</ul>
+      <nav class="navbar navbar-dark fixed-top bg-primary flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/dashboard/user/index}">User Dashboard</a>
+      <!-- <form th:action="@{/student/index}" method="get"> -->
+         <!-- <input type="text" id="search" name="keyword" class="form-control form-control-primary w-100" placeholder="Search..." >  --> 
+         <!-- </form> -->
+<div class="btn-group" style="margin-right: 50px;">
+  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Admin
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Profile</a>
+    <a class="dropdown-item" href="#">Settings</a>
+    <div class="dropdown-divider"></div>
+     <a class="nav-link" th:href="@{/logout}">Logout</a>
+  </div>
+</div>
     </nav>
     <!--SIDE MENU-->
     <div class="container-fluid">
@@ -37,6 +45,18 @@
                           <a class="nav-link active" th:href="@{/dashboard/user/index}">
                             <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
                             Dashboard
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" th:href="@{/faculty/form}">
+                            <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+                            Faculty
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" th:href="@{/department/form}">
+                            <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+                            Department
                           </a>
                         </li>
                         <li class="nav-item">
@@ -69,6 +89,8 @@
           <th>#</th>
           <th>Course Code</th>
           <th>Course Name</th>
+          <th>Faculty</th>
+          <th>Department</th>
           <th>Created_At</th>
           <th>Action</th>
         </tr>
@@ -78,6 +100,8 @@
           <td th:text="${course.id}"></td>
           <td th:text="${course.courseCode}"></td>
           <td th:text="${course.courseName}"></td>
+          <td th:text="${course.faculty.name}"></td>
+          <td th:text="${course.department.name}"></td>
           <td th:text="${course.createdAt}"></td>
           <td>
             <a th:href="@{/edit/{id}(id=${course.id})}">Edit</a>

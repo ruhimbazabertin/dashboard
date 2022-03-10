@@ -26,7 +26,7 @@ public class AssignService {
 
         return studentRepo.findById(id);
     }
-        public Student getStudentById(int id){
+        public Student getById(int id){
 
         return studentRepo.getById(id);
     }

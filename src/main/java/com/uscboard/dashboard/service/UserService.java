@@ -18,4 +18,9 @@ public class UserService {
 
 
     }
+    public User findLoggedUser(String username){
+
+        User user = userRepo.findEmail(username);
+        return user;
+    }
 }

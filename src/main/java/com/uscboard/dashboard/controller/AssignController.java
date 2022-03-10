@@ -8,7 +8,7 @@ import java.util.Set;
 
 import com.uscboard.dashboard.model.Course;
 import com.uscboard.dashboard.model.Student;
-import com.uscboard.dashboard.model.StudentCourse;
+//import com.uscboard.dashboard.model.StudentCourse;
 import com.uscboard.dashboard.repository.StudentRepository;
 import com.uscboard.dashboard.service.AssignService;
 import com.uscboard.dashboard.service.CourseService;
@@ -38,25 +38,53 @@ public class AssignController {
 
     @GetMapping("/assign-course-student/{id}")
     public String assignCourseIndex(@PathVariable("id") int id, Model model){
-        //Optional<Student> student = assignService.findStudentById(id);
-                    Student student  = assignService.getStudentById(id);
-            // if(student.isEmpty()){
-            //     logService.loggingInfo("A student you are looking for is not available");
-            // }
-            if(student == null){
-                logService.loggingInfo("A student you are looking for is not available");
-            }
-            List<Course> courses = courseService.findAvalaibleCourses();
-            model.addAttribute("student", student);
-            model.addAttribute("courses", courses);
-            
+        System.out.println("Here We are!!");
+        Student student = assignService.getById(id);
+        System.out.println("STUDENT INFO"+student.getFirstName());
+        try {
+            if(student != null){
+                List<Course> studentCoursesAvailable = student.getCourses();
+                List<Course> courses = courseService.findAvalaibleCourses();
+                model.addAttribute("student", student);
+                model.addAttribute("courses", courses);
+                model.addAttribute("availableCourses", studentCoursesAvailable);
+                System.out.println("Something is going well...");
+                return "assign/index";
+               }
+        } catch (Exception e) {
+            System.out.println("Something wrong here...");
+            System.out.println("ERROR" +e.getMessage());
+            System.out.println("ERROR" +e.getCause());
+        }
         return "assign/index";
     }
     @PostMapping("/create-student-course")
-    public String createStudentCourse(@ModelAttribute("student") Student student){
+    public String createStudentCourse(@ModelAttribute("student") Student student, Model model){
+        List<Course> selectedCourses = student.getCourses();
+        Student st = new Student();
+        st = studentService.getById(student.getId());
+        List<Course> existingCourses = new ArrayList<>();
+        existingCourses = st.getCourses();
+        List<Course> appendCourses = new ArrayList<>();
 
-        //testing
-        System.out.println("Name"+student.getFirstName());
+        //update courses assigned to a student
+
+        if((existingCourses.size()) == 0 && (student != null)){
+            student.setCourses(selectedCourses);
+            assignService.saveStudentCourses(student);
+             logService.loggingInfo("Admin assigned courses to "+student.getFirstName() +" "+student.getLastName());
+             System.out.println("Here Change: DEAL DONE!!!");
+        }else if(student != null){
+                appendCourses.addAll(existingCourses);
+                appendCourses.addAll(selectedCourses);
+                student.setCourses(appendCourses);
+                assignService.saveStudentCourses(student);
+                logService.loggingInfo("Admin assigned courses to "+student.getFirstName() +" "+student.getLastName());
+
+        }else{
+            logService.loggingError("Something went wrong");
+            model.addAttribute("message", "Something went wrong");
+        }
        return "redirect:/student/index";
     }
 }

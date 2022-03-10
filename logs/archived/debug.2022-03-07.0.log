@@ -1,0 +1,312 @@
+2022-03-07 00:04:06,889 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 10568 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 00:04:07,042 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 00:04:07,071 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 00:04:20,186 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 16.428 seconds (JVM running for 1177.853)
+2022-03-07 00:13:40,253 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 10568 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 00:13:40,354 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 00:13:40,361 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 00:14:04,767 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 26.55 seconds (JVM running for 1762.435)
+2022-03-07 00:16:37,483 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 10568 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 00:16:37,797 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 00:16:37,802 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 00:16:47,990 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 14.046 seconds (JVM running for 1925.658)
+2022-03-07 00:17:36,300 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 10568 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 00:17:36,341 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 00:17:36,443 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 00:17:54,227 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 19.131 seconds (JVM running for 1991.894)
+2022-03-07 00:18:24,068 INFO  LoggingService:18 - [] Admin assigned courses to Ruhimbaza Bertin
+2022-03-07 00:18:24,172 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 00:22:27,406 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 00:22:54,425 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 00:23:08,907 INFO  LoggingService:18 - [] Admin assigned courses to Ahishakiye Jules
+2022-03-07 00:23:08,999 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 00:25:18,674 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 10568 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 00:25:18,706 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 00:25:18,728 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 00:25:29,487 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 11.977 seconds (JVM running for 2447.154)
+2022-03-07 00:25:36,425 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 00:27:10,748 INFO  LoggingService:18 - [] Admin viewed courses
+2022-03-07 00:27:14,476 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 00:31:01,272 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 10568 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 00:31:01,284 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 00:31:01,309 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 00:31:17,943 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 17.808 seconds (JVM running for 2795.61)
+2022-03-07 00:31:41,147 INFO  UserController:20 - [] Admin try to login into the system
+2022-03-07 00:31:47,633 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 00:31:49,462 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 00:35:41,750 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 3012 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 00:35:42,234 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 00:35:42,367 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 00:36:59,382 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 83.249 seconds (JVM running for 104.287)
+2022-03-07 00:37:11,225 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 00:37:14,275 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 00:48:25,923 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 3012 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 00:48:26,000 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 00:48:26,049 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 00:48:57,249 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 35.418 seconds (JVM running for 822.154)
+2022-03-07 00:49:15,048 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 3012 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 00:49:15,274 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 00:49:15,388 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 00:49:42,883 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 33.171 seconds (JVM running for 867.788)
+2022-03-07 00:49:49,259 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 3012 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 00:49:49,262 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 00:49:49,265 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 00:50:04,206 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 15.487 seconds (JVM running for 889.111)
+2022-03-07 01:08:19,219 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 3012 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 01:08:19,575 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 01:08:19,578 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 01:08:50,073 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 39.589 seconds (JVM running for 2014.978)
+2022-03-07 01:08:50,847 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:08:54,945 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 3012 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 01:08:54,950 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 01:08:54,962 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 01:09:05,921 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 11.433 seconds (JVM running for 2030.827)
+2022-03-07 01:14:55,991 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 3012 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 01:14:56,674 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 01:14:56,677 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 01:15:26,184 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 31.883 seconds (JVM running for 2411.09)
+2022-03-07 01:15:30,256 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 3012 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 01:15:30,259 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 01:15:30,272 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 01:15:49,963 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 20.859 seconds (JVM running for 2434.868)
+2022-03-07 01:16:36,363 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 3012 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 01:16:36,369 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 01:16:36,372 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 01:16:44,819 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 10.408 seconds (JVM running for 2489.724)
+2022-03-07 01:18:56,174 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:18:58,413 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:20:04,328 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:20:56,437 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:21:15,510 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:27:05,732 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:27:28,644 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 3012 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 01:27:28,646 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 01:27:28,648 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 01:27:53,463 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 27.362 seconds (JVM running for 3158.368)
+2022-03-07 01:27:55,598 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:33:19,436 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:43:14,704 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 01:43:15,556 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 01:43:15,560 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 01:44:51,738 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 109.806 seconds (JVM running for 131.217)
+2022-03-07 01:44:59,152 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:47:00,648 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:52:00,127 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 01:52:00,438 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 01:52:00,577 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 01:52:23,008 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 25.351 seconds (JVM running for 582.486)
+2022-03-07 01:55:16,283 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:55:22,749 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:56:26,029 INFO  LoggingService:18 - [] Admin assigned courses to Niyongira Alice
+2022-03-07 01:56:28,418 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:58:57,938 INFO  LoggingService:18 - [] Admin assigned courses to Niyongira Alice
+2022-03-07 01:58:57,966 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 01:59:54,862 INFO  LoggingService:18 - [] Admin assigned courses to Ruhimbaza Bertin
+2022-03-07 01:59:54,963 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 02:33:06,946 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 02:33:07,003 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 02:33:07,005 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 02:33:49,420 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 63.09 seconds (JVM running for 3068.898)
+2022-03-07 02:33:58,137 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 02:33:58,152 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 02:33:58,173 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 02:34:18,875 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 23.781 seconds (JVM running for 3098.354)
+2022-03-07 02:35:07,983 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 02:36:06,596 INFO  LoggingService:18 - [] Admin assigned courses to Ruhimbaza Bertin
+2022-03-07 02:36:06,740 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 02:50:18,187 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 02:50:18,281 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 02:50:18,305 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 02:50:31,383 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 14.853 seconds (JVM running for 4070.861)
+2022-03-07 03:24:55,639 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 03:24:55,638 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 03:25:35,363 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 03:25:35,368 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 03:25:35,374 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 03:25:56,783 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 23.793 seconds (JVM running for 6196.262)
+2022-03-07 03:26:11,603 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 03:26:35,687 INFO  LoggingService:18 - [] Admin assigned courses to Niyongira Alice
+2022-03-07 03:26:35,746 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 04:08:42,405 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 04:08:42,459 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 04:08:42,472 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 04:09:03,849 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 25.049 seconds (JVM running for 8783.329)
+2022-03-07 04:10:29,410 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 04:10:29,478 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 04:10:29,520 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 04:10:37,334 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 9.447 seconds (JVM running for 8876.815)
+2022-03-07 04:19:42,616 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 04:38:44,464 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 04:39:07,582 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 04:39:21,365 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 04:40:16,998 INFO  LoggingService:18 - [] Admin assigned courses to Ruhimbaza Bertin
+2022-03-07 04:40:17,208 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 04:40:36,177 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 05:14:03,028 INFO  LoggingService:18 - [] Admin viewed courses
+2022-03-07 05:14:09,446 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 05:22:40,105 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 05:22:40,156 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 05:22:40,197 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 05:23:58,410 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 05:23:58,632 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 05:23:59,077 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 05:24:17,447 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 05:24:17,531 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 05:24:17,573 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 05:25:28,366 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 05:25:28,445 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 05:25:28,462 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 05:25:35,163 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 8.382 seconds (JVM running for 13374.643)
+2022-03-07 05:26:43,739 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 05:26:44,216 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 05:26:44,398 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 05:26:53,084 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 11.076 seconds (JVM running for 13452.564)
+2022-03-07 05:34:44,366 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 05:34:46,977 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 05:35:24,768 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 05:35:33,530 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 06:12:55,769 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 06:12:55,809 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 06:12:55,859 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 06:13:03,920 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 8.943 seconds (JVM running for 16223.401)
+2022-03-07 06:54:52,476 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 06:54:52,488 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 06:54:52,489 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 06:55:04,009 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 12.8 seconds (JVM running for 18743.489)
+2022-03-07 06:56:26,652 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 06:56:26,671 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 06:56:26,676 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 06:56:31,881 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 6.383 seconds (JVM running for 18831.361)
+2022-03-07 06:59:19,142 INFO  LoggingService:18 - [] Admin viewed courses
+2022-03-07 06:59:26,896 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 07:31:52,079 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 07:31:52,121 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 07:31:52,125 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 07:32:01,223 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 11.215 seconds (JVM running for 20972.699)
+2022-03-07 07:38:18,539 INFO  UserController:20 - [] Admin try to login into the system
+2022-03-07 08:00:34,582 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 08:00:34,628 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 08:00:34,632 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 08:01:05,746 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 36.115 seconds (JVM running for 22717.222)
+2022-03-07 08:39:05,693 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 08:39:05,885 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 08:39:06,017 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 08:39:27,778 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 24.185 seconds (JVM running for 25019.254)
+2022-03-07 08:42:40,183 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 08:42:45,177 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 08:43:32,225 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 15308 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 08:43:32,256 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 08:43:32,259 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 08:43:37,280 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 6.093 seconds (JVM running for 25268.757)
+2022-03-07 08:43:53,242 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 08:44:34,727 INFO  LoggingService:18 - [] Admin viewed courses
+2022-03-07 08:48:09,368 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 08:48:09,454 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 08:48:09,462 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 08:49:09,137 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 64.808 seconds (JVM running for 80.689)
+2022-03-07 08:49:22,609 INFO  LoggingService:18 - [] Admin viewed courses
+2022-03-07 08:49:38,642 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 09:12:14,500 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 09:13:50,497 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 09:13:50,553 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 09:13:50,578 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 09:14:10,657 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 22.036 seconds (JVM running for 1582.211)
+2022-03-07 09:22:51,926 INFO  LoggingService:18 - [] Admin viewed courses
+2022-03-07 09:23:14,828 INFO  LoggingService:18 - [] Admin viewed courses
+2022-03-07 09:23:18,274 INFO  LoggingService:18 - [] Admin accessed course form page
+2022-03-07 09:23:33,076 INFO  LoggingService:18 - [] Admin viewed courses
+2022-03-07 09:35:21,802 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 09:35:21,833 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 09:35:21,930 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 09:35:49,428 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 31.44 seconds (JVM running for 2880.982)
+2022-03-07 09:35:50,009 INFO  LoggingService:18 - [] Admin viewed courses
+2022-03-07 09:35:53,351 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 09:35:53,375 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 09:35:53,388 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 09:36:12,776 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 19.996 seconds (JVM running for 2904.329)
+2022-03-07 09:52:42,044 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 09:52:44,683 INFO  LoggingService:18 - [] Admin viewing student information
+2022-03-07 09:52:57,024 INFO  LoggingService:18 - [] Admin viewed courses
+2022-03-07 10:00:04,322 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 10:00:04,326 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 10:00:04,389 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 10:05:01,769 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 10:05:01,848 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 10:05:01,903 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 10:08:39,302 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 10:08:39,494 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 10:08:39,606 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 10:09:52,103 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 10:09:52,232 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 10:09:52,287 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 10:10:12,270 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 10:10:12,438 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 10:10:12,546 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 10:30:31,030 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 10:30:31,099 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 10:30:31,185 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 10:32:08,699 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 10:32:08,739 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 10:32:08,789 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 10:33:13,841 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 10:33:13,860 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 10:33:13,881 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 10:36:26,393 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 10:36:26,677 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 10:36:26,757 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 10:36:36,825 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 14.041 seconds (JVM running for 6528.38)
+2022-03-07 10:37:12,961 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 10:37:13,225 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 10:37:13,452 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 10:37:22,946 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 11.388 seconds (JVM running for 6574.501)
+2022-03-07 11:32:15,372 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 11:32:15,380 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 11:32:15,398 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 11:32:29,095 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 14.84 seconds (JVM running for 9880.65)
+2022-03-07 11:52:02,767 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 11:52:02,839 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 11:52:02,844 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 11:52:13,427 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 12.542 seconds (JVM running for 11064.982)
+2022-03-07 11:52:54,095 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 11:52:54,116 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 11:52:54,127 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 11:53:05,919 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 13.671 seconds (JVM running for 11117.473)
+2022-03-07 11:55:55,155 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 11:55:55,379 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 11:55:55,470 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 11:56:08,039 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 13.735 seconds (JVM running for 11299.593)
+2022-03-07 12:03:46,141 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 16860 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 12:03:46,160 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 12:03:46,163 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 12:03:56,253 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 10.312 seconds (JVM running for 11767.808)
+2022-03-07 22:09:00,912 INFO  LoggingService:18 - [] Admin created a new Faculty
+2022-03-07 22:12:49,294 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 4120 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 22:12:49,611 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 22:12:49,697 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 22:14:42,628 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 125.513 seconds (JVM running for 145.697)
+2022-03-07 22:16:48,895 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 4120 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 22:16:49,081 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 22:16:49,269 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 22:17:25,355 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 39.149 seconds (JVM running for 308.425)
+2022-03-07 22:17:28,044 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 4120 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 22:17:28,107 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 22:17:28,138 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 22:17:42,976 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 15.614 seconds (JVM running for 326.047)
+2022-03-07 22:18:31,960 INFO  LoggingService:18 - [] Admin created a new Faculty
+2022-03-07 22:18:41,482 INFO  LoggingService:18 - [] Admin created a new Faculty
+2022-03-07 22:18:52,984 INFO  LoggingService:18 - [] Admin created a new Faculty
+2022-03-07 22:19:14,940 INFO  LoggingService:18 - [] Admin created a new Faculty
+2022-03-07 22:19:47,566 INFO  LoggingService:18 - [] Admin created a new Faculty
+2022-03-07 22:39:27,562 INFO  LoggingService:18 - [] Admin created a new Faculty
+2022-03-07 22:42:16,458 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 4120 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 22:42:16,586 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 22:42:16,719 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 22:42:34,062 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 19.542 seconds (JVM running for 1817.132)
+2022-03-07 23:29:34,390 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 4120 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 23:29:34,624 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 23:29:34,648 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 23:29:50,199 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 19.617 seconds (JVM running for 4653.27)
+2022-03-07 23:38:04,913 INFO  StartupInfoLogger:55 - [] Starting DashboardApplication using Java 17.0.2 on DESKTOP-3EIQS84 with PID 4120 (D:\GitRepo\dashboard\target\classes started by Admin in D:\GitRepo\dashboard)
+2022-03-07 23:38:04,917 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.6.3, Spring v5.3.15
+2022-03-07 23:38:04,953 INFO  SpringApplication:637 - [] No active profile set, falling back to default profiles: default
+2022-03-07 23:38:16,513 INFO  StartupInfoLogger:61 - [] Started DashboardApplication in 12.471 seconds (JVM running for 5159.583)

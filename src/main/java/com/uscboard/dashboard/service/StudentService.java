@@ -49,4 +49,9 @@ public class StudentService {
         return repo.findByKeyword(keyword);
     }
 
+    public Student getById(int id){
+
+        return repo.getById(id);
+    }
+
 }

@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,23 +19,24 @@
   </head>
   <body>
       <!--NAVBAR COMPONENT-->
-      <nav class="navbar navbar-dark fixed-top bg-primary flex-md-nowrap p-0 shadow">
+    <nav class="navbar navbar-dark fixed-top bg-primary flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/dashboard/user/index}">User Dashboard</a>
       <!-- <form th:action="@{/student/index}" method="get"> -->
          <!-- <input type="text" id="search" name="keyword" class="form-control form-control-primary w-100" placeholder="Search..." >  --> 
          <!-- </form> -->
 <div class="btn-group" style="margin-right: 50px;">
   <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Admin
+    <span th:text="${currentUser.lastName}"></span>
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Profile</a>
+    <a class="dropdown-item" th:href="@{user/profile}">Profile</a>
     <a class="dropdown-item" href="#">Settings</a>
     <div class="dropdown-divider"></div>
      <a class="nav-link" th:href="@{/logout}">Logout</a>
   </div>
 </div>
     </nav>
+    
     <!--SIDE MENU-->
     <div class="container-fluid">
         <div class="row">
@@ -47,7 +49,7 @@
                             Dashboard
                           </a>
                         </li>
-                                                <li class="nav-item">
+                        <li class="nav-item">
                           <a class="nav-link" th:href="@{/faculty/form}">
                             <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
                             Faculty
@@ -80,75 +82,50 @@
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <h2>Welcome to admin dashboard</h2>
           <hr/>
-        <div class="row">  <h3>Student Details Information</h3> <span class="" style="margin-left: 500px;"><a th:href="@{/student/index}">Go Back</a></span></div>
-<hr>
-
-  <div class="col-md-4">
-      <div class="studentPic">
-          <span class="photo"><img th:src="${student.picture}" style="border-radius: 5px; width: 100px;"></span>
-          </div>
-          </div>
-          <div class="info" style=" margin-left: 400px; margin-top: -100px;">
-              <div class="row col-md-12">
-                <div class="col-md-2">FirstName:</div>
-                <div class="col-md-4"><strong><p th:text="${student.firstName}"></p></strong></div>
-                </div>
-                <div class="row col-md-12">
-                  <div class="col-md-2">LastName:</div>
-                  <div class="col-md-4"><strong><p th:text="${student.lastName}"></p></strong></div>
-                  </div>
-                  <div class="row col-md-12">
-                    <div class="col-md-2">Gender:</div>
-                    <div class="col-md-4"><strong><p th:text="${student.gender}"></p></strong></div>
+        <div class="row" style="margin-left: 400px;">  <h3>User Profile</h3> </div>
+     <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-10 mt-5 pt-5">
+                <div class="row z-depth-3">
+                    <div class="col-sm-4 bg-info rounded-left">
+                        <div class="card-block text-center text-white">
+                            <i class="fas fa-user-tie fa-7x mt-5"></i>
+                            <h2 class="font-weight-bold mt-5"><img src=""/></h2>
+                            <i class="far fa-edit fa-2x mb-4"></i>
+                        </div>
                     </div>
-                    <div class="row col-md-12">
-                      <div class="col-md-2">Address:</div>
-                      <div class="col-md-4"><strong><p th:text="${student.address}"></p></strong></div>
-                      </div>
-                      <div class="row col-md-12">
-                        <div class="col-md-2">UpdatedAt:</div>
-                        <div class="col-md-6"><strong><p th:text="${student.createdAt}"></p></strong></div>
-                        </div>
-                        </div>
-                        <div class="col-md-4" style="margin-top: -200px; margin-left: 700px;">
-                        <div class="alert alert-warning" role="alert">
-                          <center>Courses assigned to: <p class="" th:text="${student.firstName} +'  '+ ${student.lastName}" style="font-size: 20px; font-weight: bold;"></p></center>
-                          </div>
-                          <div class="jumbotron" style="margin-top: -50px;">
-                            <ul th:each="coursesAssigned: ${availableCourses}">
-
-                              <li th:text="${coursesAssigned.courseName}"></li>
-                              </ul>
-
+                    <div class="col-sm-8 bg-white rounded-right">
+                        <h3 class="mt-3 text-center">Information</h3>
+                        <hr class="badge-primary mt-0 w-25">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p class="font-weight-bold">FirstName:</p>
+                                <h6 class="text-muted" th:text="${currentUser.firstName}"></h6>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="font-weight-bold">LastName:</p>
+                                    <h6 class="text-muted" th:text="${currentUser.lastName}"></h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="font-weight-bold">UserName:</p>
+                                        <h6 class="text-muted" th:text="${currentUser.email}">Kigali-Rwanda</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="font-weight-bold">Role:</p>
+                                            <h6 class="text-muted"><span sec:authentication="principal.authorities">NOT FOUND</span></h6>
+                                            </div>
                             </div>
-                          </div>
-    <div class="alert alert-info" role="alert">
-      <center>Assigning Courses to Student section</center>
+                        </div>
+                </div>
       </div>
-      <form th:action="@{/create-student-course}" th:object="${student}" method="post">
-        <input type="hidden" th:field="*{id}">
-        <input type="hidden" th:field="*{firstName}">
-        <input type="hidden" th:field="*{lastName}">
-        <input type="hidden" th:field="*{gender}">
-        <input type="hidden" th:field="*{picture}">
-        <input type="hidden" th:field="*{address}">
-        <input type="hidden" th:field="*{createdAt}">
-   <!-- <div>-->
-      <span th:each="course: ${courses}"> 
-      <center>
-        <input type="checkbox" th:field="*{courses}" th:value="${course.id}">
-        <label th:text="${course.courseName}"></label><br/>
-        </center>
-        </span>
-    <!--</div>-->
-    <div class="col-md-12">
-      <button type="submit" class="btn btn-primary btn btn-block">Assign</button>
-      </div>
-      </form>
-  </div>
-
+  <hr/>
       </main>
       <!--END MAIN SECTION-->
-
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     <!--pagination, sort and filtering table-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
   </body>
 </html>
