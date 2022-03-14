@@ -45,9 +45,7 @@ public class ForgotPasswordController {
         logservice.loggingInfo("User trying to reset password using email");
         String email = request.getParameter("email");
 
-        //generating ONE TIME PASSWORD of 4 digit
-        // Random random = new Random(1000); 
-        // int token = random.nextInt(999999);
+        //generate random string
         String token = RandomString.make(30);
 
         //update token based user email
@@ -106,7 +104,7 @@ public class ForgotPasswordController {
             return "message";
         }
         model.addAttribute("token", token);
-        System.out.println("WHEN USER AVA"+user.getFirstName());
+
         return "auth/changePassword";
     }
     @PostMapping("/reset-password")

@@ -16,7 +16,7 @@ public class profileController {
 
     @GetMapping("/user/profile")
     public String userProfile(Authentication auth, Model model){
-        //System.out.println(auth.getName());
+
         String username = auth.getName();
        User user = userservice.findLoggedUser(username);
         try {
@@ -24,7 +24,7 @@ public class profileController {
                 model.addAttribute("currentUser", user);
              return "profile/userProfile";
             }else{
-                System.out.println("SOMETHING WENT WRONG.");
+                model.addAttribute("message","SOMETHING WENT WRONG.");
             }
         } catch (Exception e) {
             e.printStackTrace();

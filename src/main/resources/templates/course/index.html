@@ -96,18 +96,26 @@
         </tr>
       </thead>
       <tbody>
+        <!--WRAPPING DATA WITH FORM-->
+        <form action="" method="post">
         <tr th:each="course: ${courses}">
           <td th:text="${course.id}"></td>
-          <td th:text="${course.courseCode}"></td>
-          <td th:text="${course.courseName}"></td>
-          <td th:text="${course.faculty.name}"></td>
+        <td> <input type="" th:value="${course.courseCode}" id="courseCode"></td>
+          <td> <input type="" th:value="${course.courseName}" id="courseName"></td>
+         
+          <td> <input type="" th:value="${course.faculty.name}"></td>
           <td th:text="${course.department.name}"></td>
-          <td th:text="${course.createdAt}"></td>
+          <td> <input type="" th:value="${course.department.name}"></td>
+          
+          <td> <input type="" th:value="${course.createdAt}"></td>
           <td>
-            <a th:href="@{/edit/{id}(id=${course.id})}">Edit</a>
+           <!-- <a th:href="@{/edit/{id}(id=${course.id})}">Edit</a>-->
+           <a><input type="button" value="Update" onclick="madeAjaxCall()"></a>
           <a th:href="@{/delete/{id}(id=${course.id})}">Delete</a>
         </td>
         </tr>
+        </form>
+        <!--END-->
 
       </tbody>
     </table>
@@ -127,7 +135,8 @@
                   }]
               });
             })
-          </script>
+           </script>
+
           <!--END JAVASCRIPT-->
   </body>
 </html>

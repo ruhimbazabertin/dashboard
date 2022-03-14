@@ -80,13 +80,16 @@
 <div class="container" style="margin-right: 100px; margin-top: 50px;">
     <div class="row">
         <div class="col-md-8">
-            <form action="#" th:action="@{/course/create}" th:object="${course}" method="post">
+            <form action="#" th:action="@{/course/create}" th:object="${course}" method="post" class="needs-validation" novalidate>
                 <div class="row form-group">
                     <div class="col-md-2">
                         <label for="coursecode">Course_Code</label>
                         </div>
                         <div class="col-md-6">
                             <input type="text" th:field="*{courseCode}" class="form-control" required>
+                            <div class="invalid-feedback">
+                              Please fill out this course code field.
+                            </div>
                             <span th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" th:errorclass="error"></span>
                             </div>
                     </div>
@@ -96,6 +99,9 @@
                             </div>
                             <div class="col-md-6">
                                 <input type="text" th:field="*{courseName}" class="form-control" required>
+                                <div class="invalid-feedback">
+                                  Please fill out this course name field.
+                                </div>
                                 <span th:if="${#fields.hasErrors('courseName')}" th:errors="*{courseName}" th:errorclass="error"></span>
                                 </div>
                         </div>
@@ -108,6 +114,9 @@
                                       <option value="">Nothing selected</option>
                                       <option th:each="faculty : ${faculties}" th:value="${faculty.id}" th:text="${faculty.name}"></option>
                                       </select>
+                                      <div class="invalid-feedback">
+                                        Please select Faculty.
+                                      </div>
                                   </div>
                           </div>
 
@@ -120,15 +129,20 @@
                                         <option value="">Nothing selected</option>
                                          <option th:each="department: ${departments}" th:value="${department.dep_id}" th:text="${department.name}"></option>
                                         </select>
+                                        <div class="invalid-feedback">
+                                          Please select Faculty.
+                                        </div>
                                     </div>
                             </div>
-
                         <div class="row form-group">
                             <div class="col-md-2">
                                 <label for="Coursename">Created_At</label>
                                 </div>
                                 <div class="col-md-6">
                                     <input type="date" th:field="*{createdAt}" class="form-control" required>
+                                    <div class="invalid-feedback">
+                                      Please fill out this date field.
+                                    </div>
                                     <span th:if="${#fields.hasErrors('createdAt')}" th:errors="*{createdAt}" th:errorclass="error"></span>
                                     </div>
                             </div>
@@ -147,5 +161,25 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>
   </body>
 </html>

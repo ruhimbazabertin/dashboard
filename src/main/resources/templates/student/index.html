@@ -87,10 +87,10 @@
 			
     <thead>
       <tr>
-       <!-- <th>#</th>-->
+         <th>#</th>
           <th>FirstName</th>
           <th>LastName</th>
-          <th>Gender</th>
+         <!-- <th>Gender</th>-->
           <th>Picture</th>
           <th>Address</th>
          <!-- <th>CreatedAt</th>-->
@@ -108,7 +108,7 @@
         <td th:text="${student.address}"></td>
        <!-- <td th:text="${student.createdAt}"></td>-->
         <td>
-          <a th:href="@{/assign-course-student/{id}(id=${student.id})}">MoreInfo..</a>
+          <a data-toggle="modal" id=${student.id} data-target="#exampleModal">MoreInfo..</a>
           <a th:href="@{/editStudent/{id}(id=${student.id})}">Edit</a>
           <a th:href="@{/deleteStudent/{id}(id=${student.id})}">Delete</a>
 
@@ -118,6 +118,86 @@
     
   </table>
   </div>
+  <!--Model-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">     <div class="row">  <h3>Student Details Information</h3> </div></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!--STUDENT INFO-->
+        
+          <div class="col-md-4">
+              <div class="studentPic">
+                  <span class="photo"><img src="${student.picture}" style="border-radius: 5px; width: 100px;"></span>
+                  </div>
+                  </div>
+                  <div>
+                      <div class="row col-md-12">
+                        <div class="col-md-2">FirstName:</div>
+                        <div class="col-md-4"><strong><!--<p th:text="${student.firstName}"></p>--></strong></div>
+                        </div>
+                        <div class="row col-md-12">
+                          <div class="col-md-2">LastName:</div>
+                          <div class="col-md-4"><strong></p></strong></div>
+                          </div>
+                          <div class="row col-md-12">
+                            <div class="col-md-2">Gender:</div>
+                            <div class="col-md-4"><strong><p></p></strong></div>
+                            </div>
+                            <div class="row col-md-12">
+                              <div class="col-md-2">Address:</div>
+                              <div class="col-md-4"><strong><p ></p></strong></div>
+                              </div>
+                              <div class="row col-md-12">
+                                <div class="col-md-2">UpdatedAt:</div>
+                                <div class="col-md-6"><strong><p ></p></strong></div>
+                                </div>
+                                </div>
+                                <div>
+                                <div class="alert alert-warning" role="alert">
+                                  <center>Courses assigned to:</p></center>
+                                  </div>
+                                  <div>
+
+                                    <h2>displayed here...</h2>
+                                    </div>
+                                  </div>
+            <div class="alert alert-info" role="alert">
+              <center>Assigning Courses to Student section</center>
+              </div>
+
+           <!-- <div>-->
+
+              <center>
+
+                </center>
+                </span>
+            <!--</div>-->
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary btn btn-block">Assign</button>
+              </div>
+              </form>
+          </div>
+        
+        <!--END OF STUDENT INFO-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  <!--End model-->
       </main>
       <!--END MAIN SECTION-->
       <!--Javascript part-->

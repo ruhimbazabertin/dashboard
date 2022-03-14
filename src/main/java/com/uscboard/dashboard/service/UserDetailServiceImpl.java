@@ -48,7 +48,7 @@ public class UserDetailServiceImpl implements UserDetailsService{
                  user.setResetPasswordToken(token);
                  userRepo.save(user);
              }else{
-                 throw new UserNotFoundException("Could not find any customer with the email"+email);
+                 throw new UserNotFoundException("Could not find any user with the email"+email);
              }
     }
     public User getByresetPasswordToken(String token){

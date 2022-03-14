@@ -81,13 +81,16 @@
     <div class="row">
         <div class="col-md-8">
             <form action="#" th:action="@{/create}"
-             th:object="${student}" method="post" enctype="multipart/form-data">
+             th:object="${student}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                 <div class="row form-group">
                     <div class="col-md-2">
                         <label for="firstname">FirstName</label>
                         </div>
                         <div class="col-md-6">
-                            <input type="text" th:field="*{firstName}" class="form-control">
+                            <input type="text" th:field="*{firstName}" class="form-control" required>
+                            <div class="invalid-feedback">
+                              Please fill out this FirstName field.
+                            </div>
                             <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:errorclass="error" required></span>
                             </div>
                     </div>
@@ -97,6 +100,7 @@
                             </div>
                             <div class="col-md-6">
                                 <input type="text" th:field="*{lastName}" class="form-control" required>
+                                <div class="invalid-feedback">Please fill out this lastName field.</div>
                                 <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" th:errorclass="error"></span>
                                 </div>
                         </div>
@@ -108,6 +112,7 @@
                                     <input type="radio"  th:field="*{gender}" value="male"> Male
                                     <input type="radio" th:field="*{gender}" value="female"> Female
                                     <input type="radio" th:field="*{gender}" value="other"> Other
+                                    <div class="invalid-feedback">Please select Gender.</div>
                                     <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" th:errorclass="error"></span>
                                     </div>
                             </div>
@@ -118,9 +123,10 @@
                                   </div>
                                   <div class="col-md-6">
                                       <select class="form-control" th:field="*{faculty}" required>
-                                          <option value="">Nothing selected</option>
+                                          <option value="" aria-required="true">Nothing selected</option>
                                           <option th:each="faculty : ${faculties}" th:value="${faculty.id}" th:text="${faculty.name}"></option>
                                           </select>
+                                          <div class="invalid-feedback">Please select faculty</div>
                                       </div>
                               </div>
 
@@ -130,9 +136,10 @@
                                     </div>
                                     <div class="col-md-6">
                                         <select class="form-control" th:field="*{department}" required> 
-                                            <option value="">Nothing selected</option>
+                                            <option value="" aria-required="true">Nothing selected</option>
                                              <option th:each="department: ${departments}" th:value="${department.dep_id}" th:text="${department.name}"></option>
                                             </select>
+                                            <div class="invalid-feedback">Please select department.</div>
                                         </div>
                                 </div>
 
@@ -142,6 +149,7 @@
                                     </div> 
                                     <div class="col-md-6">
                                         <input type="file" name="file" class="form-control" required>
+                                        <div class="invalid-feedback">Please select picture.</div>
                                         <span th:if="${#fields.hasErrors('picture')}" th:errors="*{picture}" th:errorclass="error"></span>
                                         </div>
                                 </div>
@@ -151,6 +159,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <input type="text" th:field="*{address}" class="form-control" required>
+                                            <div class="invalid-feedback">Please fill out this address field.</div>
                                             <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" th:errorclass="error"></span>
                                             </div>
                                     </div>
@@ -160,6 +169,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <input type="date" th:field="*{createdAt}" class="form-control" required>
+                                                <div class="invalid-feedback">Please fill out this date field.</div>
                                                 <span th:if="${#fields.hasErrors('createdAt')}" th:errors="*{createdAt}" th:errorclass="error"></span>
                                                 </div>
                                         </div>
@@ -177,5 +187,25 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      </script>
   </body>
 </html>
