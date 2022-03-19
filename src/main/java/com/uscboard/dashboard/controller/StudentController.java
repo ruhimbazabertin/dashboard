@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -23,6 +25,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import com.uscboard.dashboard.model.Course;
 import com.uscboard.dashboard.model.Department;
 import com.uscboard.dashboard.model.Faculty;
 import com.uscboard.dashboard.model.Student;
@@ -57,31 +60,39 @@ public class StudentController {
     @GetMapping("/student/index")
     public String index(Model model, String keyword){
         logService.loggingInfo("Admin viewing student information");
+        Student student = new Student();
         List<Student> students = service.findAvalaibleStudents();
         List<Student> studentRequested = service.searchByKeyword(keyword);
 
         if(keyword != null){
             model.addAttribute("students", studentRequested);
         }else{
+            model.addAttribute("student", student);
             model.addAttribute("students",students);
+            List<Faculty> faculties = facultyService.findAllFaculty();
+            List<Department> departments = departService.findAllDepartments();
+    
+            model.addAttribute("faculties", faculties);
+            model.addAttribute("departments", departments);
         }
 
         return"student/index";
     }
-    @GetMapping("/form")
-    public String showStudentForm(Model model){
-        logService.loggingInfo("Admin Accessed the student form page");
+    //THIS FUNCTION IS NO LONGER USED SINCE I CHANGED TO BOOTSTRAP MODEL
+    // @GetMapping("/form")
+    // public String showStudentForm(Model model){
+    //     logService.loggingInfo("Admin Accessed the student form page");
 
-        Student student = new Student();
-        List<Faculty> faculties = facultyService.findAllFaculty();
-        List<Department> departments = departService.findAllDepartments();
+    //     Student student = new Student();
+    //     List<Faculty> faculties = facultyService.findAllFaculty();
+    //     List<Department> departments = departService.findAllDepartments();
 
-        model.addAttribute("student", student);
-        model.addAttribute("faculties", faculties);
-        model.addAttribute("departments", departments);
+    //     model.addAttribute("student", student);
+    //     model.addAttribute("faculties", faculties);
+    //     model.addAttribute("departments", departments);
         
-        return"student/createStudent";
-    }
+    //     return"student/createStudent";
+    // }
 
     @PostMapping("/create")
     public String create(@ModelAttribute("student") @Valid Student student, 
@@ -97,30 +108,56 @@ public class StudentController {
 
         return"redirect:/student/index";
     }
-    @GetMapping("/editStudent/{id}")
-    public String editStudentForm(@PathVariable("id") int id,  Model model){
-         Student student = service.findStudentById(id)
-                          .orElseThrow(()->new IllegalArgumentException("Invalid student Id"+id));
-                          logService.loggingWarn("Student not found");
+    // @GetMapping("/editStudent/{id}")
+    // public String editStudentForm(@PathVariable("id") int id,  Model model){
+    //      Student student = service.findStudentById(id)
+    //                       .orElseThrow(()->new IllegalArgumentException("Invalid student Id"+id));
+    //                       logService.loggingWarn("Student not found");
 
-            model.addAttribute("student", student);
-            logService.loggingWarn("Admin is trying to edit a student information");
-        return "student/editStudent";
+    //         model.addAttribute("student", student);
+    //         logService.loggingWarn("Admin is trying to edit a student information");
+    //     return "student/editStudent";
+    // }
+    //FINDING A STUDENT USING AJAX
+    @RequestMapping("/students/edit/{id}")
+    @ResponseBody
+    public  Student findStudentById(@PathVariable int id){
+        
+        Student student = service.findStudentById(id)
+                                    .orElseThrow(()->new IllegalArgumentException("Invalid student id: "+id));
+        
+        return student;
     }
-    @PostMapping("/updateStudent/{id}")
-    public String updateStudent(@ModelAttribute("student") @Valid Student student, @PathVariable("id") int id,
-    BindingResult result, @RequestParam("file") MultipartFile multipartFile)throws IOException{
+    //update a student
+    @PostMapping("/students/update")
+    public String updateStudent(@ModelAttribute("student") @Valid Student student, 
+     @RequestParam("file") MultipartFile multipartFile, BindingResult result) throws IOException{
+        logService.loggingInfo("Admin is trying to update a new student");
         if(result.hasErrors()){
             logService.loggingError("Something went wrong in updating a student");
             return"student/createStudent";
         }
-        student.setId(id);
-        service.create(student, multipartFile);
+        service.updateStudent(student, multipartFile);
         logService.loggingInfo("Admin updated a student");
+
         return"redirect:/student/index";
     }
-    @GetMapping("/deleteStudent/{id}")
-    public String deleteStudent(@PathVariable("id") int id, Model model){
+
+    // @PostMapping("/updateStudent/{id}")
+    // public String updateStudent(@ModelAttribute("student") @Valid Student student, @PathVariable("id") int id,
+    // BindingResult result, @RequestParam("file") MultipartFile multipartFile)throws IOException{
+    //     if(result.hasErrors()){
+    //         logService.loggingError("Something went wrong in updating a student");
+    //         return"student/createStudent";
+    //     }
+    //     student.setId(id);
+    //     service.create(student, multipartFile);
+    //     logService.loggingInfo("Admin updated a student");
+    //     return"redirect:/student/index";
+    // }
+   // @GetMapping("/deleteStudent/{id}")
+   @RequestMapping(value ="/delete", method = {RequestMethod.GET, RequestMethod.DELETE} )
+    public String deleteStudent(Integer id, Model model){
         Optional<Student> student = service.findStudentById(id);
          if(student.isPresent()){
              service.deleteStudentById(id);

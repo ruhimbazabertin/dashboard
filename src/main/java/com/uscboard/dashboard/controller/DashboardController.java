@@ -39,20 +39,22 @@ public class DashboardController {
      List<Department> departments = departservice.findAllDepartments();
         List<String>departNames = new ArrayList<>();
         List<Integer>studentNumberOnEachDepart = new ArrayList<>();
+        List<Integer>coursesNumberOnEachDepart = new ArrayList<>();
         for(Department depart : departments){
-           // System.out.println("THE NAME OF DEPARTMENT: "+depart.getName());
-           //int studentNo = depart.getStudents().size();
-          // System.out.println("Number of student in each department: "+studentNo);
-           studentNumberOnEachDepart.add(depart.getCourses().size());
+           int studentNo = depart.getStudents().size();
+           int courseNo =  depart.getCourses().size();
+           studentNumberOnEachDepart.add(studentNo);
+           coursesNumberOnEachDepart.add(courseNo);
         }
         for(Department depart : departments){
             String departName = depart.getName();
             departNames.add(departName);
         }
-        
+
        //Send the list of departments to frontend
         model.addAttribute("departNames", departNames);
         model.addAttribute("studentNumberOnEachDepart", studentNumberOnEachDepart);
+        model.addAttribute("coursesNumberOnEachDepart", coursesNumberOnEachDepart);
 
         model.addAttribute("totalOfStudentAvailable", totalOfStudentAvailable);
         model.addAttribute("totalOfCourseAvailable", totalOfCourseAvailable);

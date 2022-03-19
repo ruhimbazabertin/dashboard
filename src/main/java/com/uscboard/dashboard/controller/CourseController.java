@@ -27,6 +27,9 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -56,7 +59,13 @@ public class CourseController {
     public String index(Model model){
         logService.loggingInfo("Admin viewed courses");
         List<Course>courses = service.findAvalaibleCourses();
+        List<Faculty> faculties = facultyService.findAllFaculty();
+        List<Department> departments = departService.findAllDepartments();
+
         model.addAttribute("courses", courses);
+        model.addAttribute("faculties", faculties);
+        model.addAttribute("departments", departments);
+
         return "course/index";
     }
     @GetMapping("/course/form")
@@ -84,24 +93,38 @@ public class CourseController {
         logService.loggingInfo("Admin created a new course");
         return"redirect:/course/index";
     }
-    @GetMapping("/edit/{id}")
-    public String editForm(@PathVariable("id") int id, Model model){
-        Course course = service.findCourseById(id)
-                            .orElseThrow(()->new IllegalArgumentException("Invalid Course Id"+id));
-                logService.loggingWarn("Course ID does not exist");
-            model.addAttribute("course", course);
-            logService.loggingInfo("Admin is editing a course");
-        return "course/editCourse";
-    }
-    @PostMapping("/update/{id}")
-    public String updateCourse(@Valid @ModelAttribute("course") Course course, @PathVariable("id") int id, BindingResult result){
-        if(result.hasErrors()){
-            logService.loggingError("Something went wrong in updating a course");
-            return "course/editCourse";
+    // @GetMapping("/edit/{id}")
+    // public String editForm(@PathVariable("id") int id, Model model){
+    //     Course course = service.findCourseById(id)
+    //                         .orElseThrow(()->new IllegalArgumentException("Invalid Course Id"+id));
+    //             logService.loggingWarn("Course ID does not exist");
+    //         model.addAttribute("course", course);
+    //         logService.loggingInfo("Admin is editing a course");
+    //     return "course/editCourse";
+    // }
+        //FIND A COURSE USING AJAX
+        @RequestMapping("/courses/edit/{id}")
+        @ResponseBody
+        public  Optional<Course> findStudentById(@PathVariable Integer id, Model model){
+
+            return service.findCourseById(id);
         }
-        course.setId(id);
-        service.create(course);
-        logService.loggingInfo("Admin created a new course");
+   // @PostMapping("/courses/update")
+   @RequestMapping(value="/courses/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String updateCourse(@Valid @ModelAttribute("course") Course course, BindingResult result){
+        try {
+            // if(result.hasErrors()){
+            //     logService.loggingError("Something went wrong in updating a course");
+            //     return"redirect:/course/index";
+            // }
+           // course.setId(id);
+            service.create(course);
+            logService.loggingInfo("Admin created a new course");
+            return"redirect:/course/index";
+        } catch (Exception e) {
+            e.getCause().getMessage();
+            logService.loggingError("Something went wrong Analyze this error");
+        }
         return"redirect:/course/index";
     }
     @GetMapping("/delete/{id}")

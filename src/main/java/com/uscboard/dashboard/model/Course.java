@@ -1,6 +1,8 @@
 package com.uscboard.dashboard.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,6 +21,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;;
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,12 +37,13 @@ public class Course {
 
     //Create relationship
     @ManyToMany(mappedBy = "courses", fetch = FetchType.EAGER)
+    @JsonBackReference
     private List<Student> students;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
     private Faculty faculty;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
     private Department department;
 
     public int getId() {

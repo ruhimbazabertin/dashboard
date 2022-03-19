@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import com.uscboard.dashboard.model.Course;
 import com.uscboard.dashboard.model.Student;
 import com.uscboard.dashboard.repository.StudentRepository;
 import com.uscboard.dashboard.util.FileUploadUtil;
@@ -30,9 +31,30 @@ public class StudentService {
      String uploadDir = "D:/GitRepo/dashboard/src/main/resources/static/uploads/" + student.getId();
      FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
      String filePath = "/uploads/" + student.getId()+"/"+fileName;
-    // String filePath = "D:/GitRepo/dashboard/src/main/resources/static/uploads/" + student.getId()+"/"+fileName;
      student.setPicture(filePath);
      repo.save(student);
+    }
+    public void updateStudent(Student student, @RequestParam("file") 
+    MultipartFile multipartFile) throws IOException{
+
+     //UPLOAD PICTURE IN DIRECTORY
+     String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+     String uploadDir = "D:/GitRepo/dashboard/src/main/resources/static/uploads/" + student.getId();
+     FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+     String filePath = "/uploads/" + student.getId()+"/"+fileName;
+             //Find if a student exist in db
+             int student_id = student.getId();
+             Student  orginalStudent = repo.getById(student_id);
+               List<Course> courses = orginalStudent.getCourses();
+               //set courses assigned to a student
+               if(student !=null && !courses.isEmpty()){
+                   student.setCourses(courses);
+                   student.setPicture(filePath);
+               repo.save(student);
+               }else{
+            student.setPicture(filePath);
+            repo.save(student);
+         }
     }
     public List<Student> findAvalaibleStudents(){
         return repo.findAll();

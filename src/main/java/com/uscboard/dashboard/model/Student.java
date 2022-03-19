@@ -1,5 +1,6 @@
 package com.uscboard.dashboard.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -43,6 +44,7 @@ public class Student {
     private LocalDate createdAt;
     //create relationship
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonBackReference
     @JoinTable(name="student_courses",
                     joinColumns = {
                         @JoinColumn(name="student_id", referencedColumnName = "id")
@@ -54,8 +56,10 @@ public class Student {
     private List<Course> courses;
     
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     private Faculty faculty;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     private Department department;
 
     public int getId() {

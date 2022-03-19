@@ -88,7 +88,22 @@
           <span class="photo"><img th:src="${student.picture}" style="border-radius: 5px; width: 100px;"></span>
           </div>
           </div>
-          <div class="info" style=" margin-left: 400px; margin-top: -100px;">
+          <!--FACULTY AND DEPARMENT OF STUDENT-->
+          <div class="col-md-4">
+            <div class="alert alert-warning" role="alert">
+              <center>Faculty and Department: </center>
+              </div>
+              <div class="jumbotron">
+                <div class="faculty">
+                  <span class="">Faculty: <strong th:text="${student.getFaculty.name}"></strong>
+                </div>
+                <div class="faculty">
+                  <span class="">Department: <strong th:text="${student.getDepartment.name}"></strong>
+                </div>
+                </div>
+              </div>
+          <!--END-->
+          <div class="info" style=" margin-left: 400px; margin-top: -350px;">
               <div class="row col-md-12">
                 <div class="col-md-2">FirstName:</div>
                 <div class="col-md-4"><strong><p th:text="${student.firstName}"></p></strong></div>
