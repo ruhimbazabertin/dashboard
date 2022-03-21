@@ -1,7 +1,5 @@
 package com.uscboard.dashboard.controller;
 
-import java.util.Optional;
-
 import javax.servlet.http.HttpServletRequest;
 
 //import org.hibernate.annotations.common.util.impl.LoggerFactory;
@@ -39,7 +37,7 @@ public String redirectionAfterLogin(HttpServletRequest request){
     
     log.info("Admin is into the system");
 
-    return "redirect:/student/index";
+    return "redirect:/dashboard/user/index";
 
 }
 }

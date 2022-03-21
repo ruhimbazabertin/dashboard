@@ -11,13 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity
 public class Faculty {
     @Id
@@ -46,6 +39,14 @@ public class Faculty {
         orphanRemoval = true
     )
     private List<Student> students = new ArrayList<>();
+
+    //CREATE A RELATIONSHIP BETWEEN FACULTY AND TEACHER
+    @OneToMany(
+        mappedBy = "faculty",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<Teacher> teachers = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -83,6 +84,12 @@ public class Faculty {
     }
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
     }
     
     

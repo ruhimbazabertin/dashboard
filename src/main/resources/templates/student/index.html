@@ -72,6 +72,12 @@
                             student
                           </a>
                         </li>
+                        <li class="nav-item">
+                          <a class="nav-link" th:href="@{/teacher/index}">
+                            <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+                            teacher
+                          </a>
+                        </li>
                       </ul>
                 </div>
               </div>
@@ -83,8 +89,6 @@
           <hr/>
         <div class="row">  <h3>Student Available</h3> <span class="" style="margin-left: 700px;"><a id="createStudentButton" class="btn btn-primary" style="color: white; text-decoration: none;">Add New Student</a></span></div>
 <hr>
-
-<!--END OF THE FORM-->
 <div class="table-responsive">
   <table class="table table-bordered table-striped" id="studentTable">
 			
@@ -293,7 +297,7 @@
                   <form action="#" th:action="@{/create}"
                    th:object="${student}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                       <div class="row form-group">
-                          <div class="col-md-2">
+                          <div class="col-md-4">
                               <label for="firstname">FirstName</label>
                               </div>
                               <div class="col-md-6">
@@ -305,7 +309,7 @@
                                   </div>
                           </div>
                           <div class="row form-group">
-                              <div class="col-md-2">
+                              <div class="col-md-4">
                                   <label for="gender">LastName</label>
                                   </div>
                                   <div class="col-md-6">
@@ -315,7 +319,7 @@
                                       </div>
                               </div>
                               <div class="row form-group">
-                                  <div class="col-md-2">
+                                  <div class="col-md-4">
                                       <label for="gender">Gender</label>
                                       </div>
                                       <div class="col-md-6">
@@ -328,7 +332,7 @@
                                   </div>
                                   
                                   <div class="row form-group">
-                                    <div class="col-md-2">
+                                    <div class="col-md-4">
                                         <label for="fuculty">Select Faculty</label>
                                         </div>
                                         <div class="col-md-6">
@@ -341,7 +345,7 @@
                                     </div>
       
                                     <div class="row form-group">
-                                      <div class="col-md-2">
+                                      <div class="col-md-4">
                                           <label for="firstname">Select Department</label>
                                           </div>
                                           <div class="col-md-6">
@@ -354,7 +358,7 @@
                                       </div>
       
                                   <div class="row form-group">
-                                      <div class="col-md-2">
+                                      <div class="col-md-4">
                                           <label for="Picture">Picture</label>
                                           </div> 
                                           <div class="col-md-6">
@@ -364,7 +368,7 @@
                                               </div>
                                       </div>
                                       <div class="row form-group">
-                                          <div class="col-md-2">
+                                          <div class="col-md-4">
                                               <label for="Address">Address</label>
                                               </div>
                                               <div class="col-md-6">
@@ -374,7 +378,7 @@
                                                   </div>
                                           </div>
                                           <div class="row form-group">
-                                              <div class="col-md-2">
+                                              <div class="col-md-4">
                                                   <label for="CreatedAt">Created_At</label>
                                                   </div>
                                                   <div class="col-md-6">

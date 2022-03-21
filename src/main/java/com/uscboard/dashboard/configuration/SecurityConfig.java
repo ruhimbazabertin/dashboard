@@ -57,6 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             .antMatchers("/student/index").authenticated()
             .antMatchers("/course/index").authenticated()
             .antMatchers("/dashboard/user/index").authenticated()
+            //.antMatchers("/teacher/index").authenticated()
            // .antMatchers("/course/index").hasRole("ADMIN")
             .anyRequest().authenticated()
 
