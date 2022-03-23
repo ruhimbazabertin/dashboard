@@ -1,5 +1,7 @@
 package com.uscboard.dashboard.service;
 
+import java.util.List;
+
 import com.uscboard.dashboard.model.User;
 import com.uscboard.dashboard.repository.UserRepository;
 
@@ -22,5 +24,9 @@ public class UserService {
 
         User user = userRepo.findEmail(username);
         return user;
+    }
+    public List<User> findAllUsers(){
+
+        return userRepo.findAll();
     }
 }

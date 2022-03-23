@@ -52,17 +52,17 @@ class DashboardApplicationTests {
          //find the role to atach to user
          Set<Role> roles1 = new HashSet<Role>();
         //List<Role> roles1 = new ArrayList<Role>();
-         Role adminRole = roleservice.findRoleById(32);
-         roles1.add(adminRole);
-        User admin = new User();
-        admin.setFirstName("Ruhimbaza");
-        admin.setLastName("Bertin");
-        admin.setGender("Male");
-        admin.setEmail("ruhimbazab@gmail.com");
-        admin.setPassword("bertin123");
-        admin.setRoles(roles1);
+         Role courseManagerRole = roleservice.findRoleById(33);
+         roles1.add(courseManagerRole);
+        User courseManager = new User();
+        courseManager.setFirstName("Niyonzima");
+        courseManager.setLastName("Theogene");
+        courseManager.setGender("Male");
+        courseManager.setEmail("theo@gmail.com");
+        courseManager.setPassword("theo123");
+        courseManager.setRoles(roles1);
         
-    userService.createUser(admin);
+    userService.createUser(courseManager);
 
      }
 

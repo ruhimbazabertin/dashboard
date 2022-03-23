@@ -6,10 +6,12 @@ import java.util.List;
 import com.uscboard.dashboard.model.Course;
 import com.uscboard.dashboard.model.Department;
 import com.uscboard.dashboard.model.Student;
+import com.uscboard.dashboard.model.User;
 import com.uscboard.dashboard.repository.StudentRepository;
 import com.uscboard.dashboard.service.CourseService;
 import com.uscboard.dashboard.service.DepartmentService;
 import com.uscboard.dashboard.service.StudentService;
+import com.uscboard.dashboard.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,14 +29,18 @@ public class DashboardController {
     private CourseService courseService;
     @Autowired
     private DepartmentService departservice;
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/user/index")
     public String dashboard(Model model){
 
         List<Student> studentsAvailable = studentService.findAvalaibleStudents();
         List<Course> coursesAvailable  = courseService.findAvalaibleCourses();
+        List<User>   usersAvailable    = userService.findAllUsers();
         int totalOfStudentAvailable = studentsAvailable.size();
         int totalOfCourseAvailable  = coursesAvailable.size();
+        int totalOfUserAvailable    = usersAvailable.size();
         //List of departments
      List<Department> departments = departservice.findAllDepartments();
         List<String>departNames = new ArrayList<>();
@@ -58,6 +64,8 @@ public class DashboardController {
 
         model.addAttribute("totalOfStudentAvailable", totalOfStudentAvailable);
         model.addAttribute("totalOfCourseAvailable", totalOfCourseAvailable);
+        model.addAttribute("totalOfUserAvailable", totalOfUserAvailable);
+        model.addAttribute("users", usersAvailable);
 
         return "dashboard/index";
     }

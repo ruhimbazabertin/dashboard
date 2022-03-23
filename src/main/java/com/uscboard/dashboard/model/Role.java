@@ -16,13 +16,10 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
-    private List<User> users;
 
-    public Role(int id, String name, List<User> users) {
+    public Role(int id, String name) {
         this.id = id;
         this.name = name;
-        this.users = users;
     }
 
     public Role() {
@@ -42,12 +39,11 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+       return this.name;
+    }
     
-    public List<User> getUsers() {
-        return users;
-    }
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
     
 }

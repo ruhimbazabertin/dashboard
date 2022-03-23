@@ -117,7 +117,7 @@
       <div class="card border-primary mb-4">
           <div class="card-body text-warning">
               <h5 class="card-title">Users available</h5>
-              <p class="card-text" style="color: black;">Number: <strong>4</strong></p>
+              <p class="card-text" style="color: black;">Number: <strong><span th:text="${totalOfUserAvailable}"></span></strong></p>
           </div>
       </div>
       </a>
@@ -132,7 +132,46 @@
   <div id="chart" style="position: relative; top:-100px; margin-left: 200px;">
     <canvas id="chart" width="500"></canvas>
     </div>
+    <hr/>
   <!--END OF PIE CHART-->
+  <!--USERS INFO-->
+  <button type="button" class="btn btn-primary btn btn-block" data-toggle="modal" data-target=""><a style="text-decoration: none;" href=""><span style="color: white;">Create New User</span></a></button>
+  <div class="container">
+  <div class="users">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped" id="userTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="user: ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+           
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.roles}"></td>
+            <td>
+              <button type="button" class="btn btn-primary" style="color: white;" data-toggle="modal" data-target="#exampleModal"><a id="editCourseLink" th:href="@{/users/edit/{id}(id=${user.id})}" style="text-decoration: none;"><span style="color: white;">Edit</span></a></button>
+             <button type="button" class="btn btn-danger"> <a th:href="@{/delete/{id}(id=${user.id})}" style="text-decoration: none;"><span style="color: white;">Delete</span></a></button>
+          </td>
+          </tr>
+          </form>
+          <!--END-->
+  
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+    <!--END-->
       </main>
       <!--END MAIN SECTION-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -207,6 +246,5 @@ var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
 </script>
 <!--END SCRIPT-->
-    <!--END-->
   </body>
 </html>
