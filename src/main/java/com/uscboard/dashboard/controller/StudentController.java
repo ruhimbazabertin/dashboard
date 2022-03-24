@@ -118,7 +118,7 @@ public class StudentController {
     //         logService.loggingWarn("Admin is trying to edit a student information");
     //     return "student/editStudent";
     // }
-    //FINDING A STUDENT USING AJAX
+    //FINDING A STUDENT AND RETURN DATA IN JSON FORMAT
     @RequestMapping("/students/edit/{id}")
     @ResponseBody
     public  Student findStudentById(@PathVariable int id){

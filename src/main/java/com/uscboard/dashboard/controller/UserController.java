@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 //import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,4 +41,5 @@ public String redirectionAfterLogin(HttpServletRequest request){
     return "redirect:/dashboard/user/index";
 
 }
+
 }

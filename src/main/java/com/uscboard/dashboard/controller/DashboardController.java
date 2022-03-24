@@ -2,6 +2,7 @@ package com.uscboard.dashboard.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.uscboard.dashboard.model.Course;
 import com.uscboard.dashboard.model.Department;
@@ -17,7 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RequestMapping("/dashboard")
 @Controller
@@ -68,5 +72,24 @@ public class DashboardController {
         model.addAttribute("users", usersAvailable);
 
         return "dashboard/index";
+    }
+    @GetMapping("/users/delete/{id}")
+    public String deleteUser(@PathVariable("id") int id){
+        User user = userService.findUserById(id)
+                                .orElseThrow(()->new IllegalArgumentException("Invalid id"+id));
+            userService.deleteUser(user);
+        return "dashboard/index";
+    }
+    @GetMapping("/users/edit/{id}")
+    @ResponseBody
+    public User editUser(@PathVariable("id") int id){
+            User user = userService.findUserById(id)
+                                    .orElseThrow(()->new IllegalArgumentException("Invalid user id."+id));
+        return user;
+    }
+    @PostMapping("/users/update")
+    public String updateUser(User user){
+        userService.createUser(user);
+        return"dashboard/index";
     }
 }

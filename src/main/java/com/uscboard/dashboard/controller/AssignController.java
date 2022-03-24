@@ -2,8 +2,11 @@ package com.uscboard.dashboard.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.uscboard.dashboard.model.Course;
+import com.uscboard.dashboard.model.Department;
+import com.uscboard.dashboard.model.Faculty;
 import com.uscboard.dashboard.model.Student;
 import com.uscboard.dashboard.service.AssignService;
 import com.uscboard.dashboard.service.CourseService;
@@ -54,18 +57,27 @@ public class AssignController {
         List<Course> existingCourses = new ArrayList<>();
         existingCourses = st.getCourses();
         List<Course> appendCourses = new ArrayList<>();
+        Faculty faculty = st.getFaculty();
+        Department depart = st.getDepartment();
 
+        //First, set faculty and department to a student
+        student.setFaculty(faculty);
+        student.setDepartment(depart);
         //update courses assigned to a student
-
         if((existingCourses.size()) == 0 && (student != null)){
+
             student.setCourses(selectedCourses);
             assignService.saveStudentCourses(student);
              logService.loggingInfo("Admin assigned courses to "+student.getFirstName() +" "+student.getLastName());
              System.out.println("Here Change: DEAL DONE!!!");
-        }else if(student != null){
+        }else if((student != null) && (existingCourses.size() != 0)){
                 appendCourses.addAll(existingCourses);
                 appendCourses.addAll(selectedCourses);
-                student.setCourses(appendCourses);
+            //prevent courses duplicate in the list using lambdas.
+            List<Course> uniqueCourses = appendCourses.stream()
+                         .distinct()
+                         .collect(Collectors.toList());
+                student.setCourses(uniqueCourses);
                 assignService.saveStudentCourses(student);
                 logService.loggingInfo("Admin assigned courses to "+student.getFirstName() +" "+student.getLastName());
 

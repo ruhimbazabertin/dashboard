@@ -1,6 +1,7 @@
 package com.uscboard.dashboard.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.uscboard.dashboard.model.User;
 import com.uscboard.dashboard.repository.UserRepository;
@@ -28,5 +29,13 @@ public class UserService {
     public List<User> findAllUsers(){
 
         return userRepo.findAll();
+    }
+    public Optional<User> findUserById(int id){
+
+        return userRepo.findById(id);
+    }
+    public void deleteUser(User user){
+
+         userRepo.delete(user);
     }
 }

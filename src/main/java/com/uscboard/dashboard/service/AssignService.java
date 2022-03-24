@@ -18,7 +18,8 @@ public class AssignService {
     private CourseRepository  courseRepo;
 
     public void saveStudentCourses(Student student){
-
+        //logics here
+        
         studentRepo.save(student);
     }
 
