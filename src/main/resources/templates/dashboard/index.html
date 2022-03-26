@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +28,7 @@
          <!-- </form> -->
 <div class="btn-group" style="margin-right: 50px;">
   <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Admin
+    <span th:text="${#authentication.getPrincipal().getUsername()}"></span>
   </button>
   <div class="dropdown-menu">
     <a class="dropdown-item" th:href="@{/user/profile}">Profile</a>
@@ -370,8 +371,8 @@ chart.render();
         $("#last_name").val(user.lastName);
         $("#user_gender").val(user.gender);
         $("#email").val(user.email);
-        $("#role").val(user.roles);
-        console.log("ROLE:"+user.roles);
+        $("#role").val(user.roles[0].name);
+
       });
     $('#editUserModel').modal();
     console.log("UserFirstName:"+user.firstName)

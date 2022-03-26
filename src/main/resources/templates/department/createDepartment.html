@@ -22,7 +22,7 @@
          <!-- </form> -->
 <div class="btn-group" style="margin-right: 50px;">
   <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Admin
+    <span th:text="${#authentication.getPrincipal().getUsername()}"></span>
   </button>
   <div class="dropdown-menu">
     <a class="dropdown-item" href="#">Profile</a>
