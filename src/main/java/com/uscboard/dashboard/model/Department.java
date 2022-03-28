@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 public class Department {
@@ -21,6 +23,7 @@ public class Department {
     private String name;
 
     //create biredictional relationship
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     private Faculty faculty;
 

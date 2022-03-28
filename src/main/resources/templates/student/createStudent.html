@@ -128,7 +128,7 @@
                                   <label for="fuculty">Select Faculty</label>
                                   </div>
                                   <div class="col-md-6">
-                                      <select class="form-control" th:field="*{faculty}" required>
+                                      <select class="form-control"id="selected_faculty" th:field="*{faculty}" required>
                                           <option value="" aria-required="true">Nothing selected</option>
                                           <option th:each="faculty : ${faculties}" th:value="${faculty.id}" th:text="${faculty.name}"></option>
                                           </select>
@@ -141,7 +141,7 @@
                                     <label for="firstname">Select Department</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <select class="form-control" th:field="*{department}" required> 
+                                        <select class="form-control" id="select_depart" th:field="*{department}" required> 
                                             <option value="" aria-required="true">Nothing selected</option>
                                              <option th:each="department: ${departments}" th:value="${department.dep_id}" th:text="${department.name}"></option>
                                             </select>
@@ -213,5 +213,6 @@
         }, false);
       })();
       </script>
+        
   </body>
 </html>

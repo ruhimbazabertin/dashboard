@@ -1,6 +1,7 @@
 package com.uscboard.dashboard.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.uscboard.dashboard.model.Faculty;
 import com.uscboard.dashboard.service.FacultyService;
@@ -11,7 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class FacultyController {
@@ -46,4 +49,12 @@ public class FacultyController {
 
         return "faculty/createFaculty";
     }
+    //The Get Faculty By Id
+    @GetMapping("/students/faculty/{id}")
+    @ResponseBody
+    public Optional<Faculty> findFaculty(@PathVariable("id") int id){
+        
+        return facultyService.findFacultyById(id);
+
+    } 
 }

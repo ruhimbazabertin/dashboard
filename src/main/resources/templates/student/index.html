@@ -211,8 +211,8 @@
                                     <label for="fuculty">Select Faculty</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <select class="form-control" name="faculty" required>
-                                            <option value="" aria-required="true">Nothing selected</option>
+                                        <select class="form-control" id="selected_faculty" name="faculty" required>
+                                          <option value="">-SELECT-</option>
                                             <option th:each="faculty : ${faculties}" th:value="${faculty.id}" th:text="${faculty.name}"></option>
                                             </select>
                                             <div class="invalid-feedback">Please select faculty</div>
@@ -224,8 +224,8 @@
                                       <label for="firstname">Select Department</label>
                                       </div>
                                       <div class="col-md-6">
-                                          <select class="form-control" name="department" required> 
-                                              <option value="" aria-required="true">Nothing selected</option>
+                                          <select class="form-control" id="select_depart" name="department" required> 
+                                            <option value="">-SELECT-</option>
                                                <option th:each="department: ${departments}" th:value="${department.dep_id}" th:text="${department.name}"></option>
                                               </select>
                                               <div class="invalid-feedback">Please select department.</div>
@@ -338,7 +338,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <select class="form-control" th:field="*{faculty}" required>
-                                                <option value="" aria-required="true">Nothing selected</option>
+                                              <option th:value="${null}">-SELECT-</option>
                                                 <option th:each="faculty : ${faculties}" th:value="${faculty.id}" th:text="${faculty.name}"></option>
                                                 </select>
                                                 <div class="invalid-feedback">Please select faculty</div>
@@ -476,6 +476,27 @@
                 }, false);
               })();
               </script>
+       <!--SCRIPT TO LOAD RELATED DEPARTMENTS WHEN FACT CHANGED-->
+                                <!-- <script>
+                                  console.log("Something went wrong here.");
+                                  $('#selected_faculty').on('change', function(){
+                                    $('#select_depart').empty().append('<option value="null">--SELECT--</option>');
+                                    var facultyId = $(this).val();
+                                    console.log("IS IT DONE?");
+                                    console.log(facultyId);
+                                    var href="http://localhost:8080/students/faculty/"+facultyId
+                                    console.log("Hello There!!");
+                                    console.log(href);
+                                    $.get(href, function(faculty, status){
+                                      console.log(faculty);
+                                      var departs = faculty.departents;
+                                      console.log(departs);
+                                      for(var count=0; count<=departs.length-1; count++){
+                                        $('#select_depart').append('<option value="'+ departs[count].dep_id + '">' +departs[count].name + '</option>');
+                                      }
+                                    })
+                                  })
+                                  </script> -->
       <!--END JAVASCRIPT-->
 
   </body>

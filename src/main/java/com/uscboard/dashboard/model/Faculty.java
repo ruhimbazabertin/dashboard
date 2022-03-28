@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Faculty {
     @Id
@@ -26,6 +28,7 @@ public class Faculty {
         orphanRemoval = true
     )
     private List<Course> courses = new ArrayList<>();
+    @JsonBackReference
     @OneToMany(
         mappedBy = "faculty",
         cascade = CascadeType.ALL,

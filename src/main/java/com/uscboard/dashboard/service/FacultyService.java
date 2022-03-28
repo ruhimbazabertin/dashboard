@@ -1,6 +1,7 @@
 package com.uscboard.dashboard.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.uscboard.dashboard.model.Faculty;
 import com.uscboard.dashboard.repository.FacultyRepository;
@@ -20,5 +21,9 @@ public class FacultyService {
 
         return facultyRepo.findAll();
         
+    }
+    public Optional<Faculty> findFacultyById(int id){
+
+        return facultyRepo.findById(id);
     }
 }
